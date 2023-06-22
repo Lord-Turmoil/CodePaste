@@ -1,0 +1,70 @@
+/* header */
+.border {
+    width: 100%;
+    min-width: 500px;
+}
+
+.header {
+    padding: 10px;
+    text-align: center;
+}
+
+.header span {
+    font-family: 'Lucida Handwriting';
+    font-size: 3em;
+    font-weight: bold;
+}
+
+.header span img {
+    height: 1.7em;
+    vertical-align: middle;
+    margin: 0 5px;
+}
+
+/* marquee */
+.banner {
+    margin: 5px 0;
+}
+
+/* tool bar */
+.tools-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 10px;
+}
+
+.tools-wrapper .tools {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-self: start;
+}
+
+.tools-wrapper .tools .tool {
+    align-self: center;
+    display: flex;
+    flex-direction: row;
+    margin: 5px;
+}
+
+.tools-wrapper .tools .tool>div {
+    margin: 0 5px;
+    align-self: center;
+}
+
+@media screen and (max-width: 1000px) {
+    .tools-wrapper .tools {
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .tools-wrapper .tools .tool {
+        align-self: flex-start;
+    }
+}
+
+.tools-wrapper .help-wrapper {
+    align-self: center;
+    margin-left: 10px;
+}

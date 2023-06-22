@@ -1,0 +1,48 @@
+/*
+Copyright (C) Tony's Studio 2023
+*/
+
+/* global default styles */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+*:focus {
+    outline: none;
+}
+
+li {
+    list-style: none;
+}
+
+.clearfix:before,
+.clearfix::after {
+    content: "";
+    display: table;
+}
+
+.clearfix::after {
+    clear: both;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* common styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+hr {
+    width: 90%;
+    margin: 0px auto;
+    height: 2px;
+    border: none;
+    background-image: linear-gradient(90deg, transparent 0%, #3f3f3f 50%, transparent 100%);
+}

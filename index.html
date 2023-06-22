@@ -5,10 +5,132 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CodePaste</title>
-    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.png" type="image/x-icon">
+    <!-- required CSS -->
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/fonts.css">
+    <link rel="stylesheet" href="/css/effect.css">
+    <!-- optional CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/select.css">
+    <!-- required JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="/js/fontawesome.js"></script>
 </head>
+
 <body>
+    <div class="border">
+        <!-- header -->
+        <div class="header">
+            <span>Code</span>
+            <span><img src="/res/img/logo.png" alt="Stir"></span>
+            <span>Paste</span>
+        </div>
+        <hr>
+
+        <!-- marquee banner -->
+        <div class="banner">
+            <marquee behavior="scroll" direction="left">
+                <p>Welcome to Tony's CodePaste!</p>
+            </marquee>
+        </div>
+        <hr>
+
+        <!-- tool bar -->
+        <div class="tools-wrapper">
+            <div class="tools">
+                <div class="tool">
+                    <div class="prompt"><span>Language</span></div>
+                    <div class="select-wrapper">
+                        <div id="app-cover">
+                            <div id="select-box">
+                                <input type="checkbox" id="options-view-button">
+                                <div id="select-button" class="brd">
+                                    <div id="selected-value">
+                                        <span>Select a platform</span>
+                                    </div>
+                                    <div id="chevrons">
+                                        <i class="fas fa-chevron-up"></i>
+                                        <i class="fas fa-chevron-down"></i>
+                                    </div>
+                                </div>
+                                <div id="options">
+                                    <div class="option">
+                                        <input class="s-c top" type="radio" name="platform" value="codepen">
+                                        <input class="s-c bottom" type="radio" name="platform" value="codepen">
+                                        <i class="fab fa-codepen"></i>
+                                        <span class="label">CodePen</span>
+                                        <span class="opt-val">CodePen</span>
+                                    </div>
+                                    <div class="option">
+                                        <input class="s-c top" type="radio" name="platform" value="dribbble">
+                                        <input class="s-c bottom" type="radio" name="platform" value="dribbble">
+                                        <i class="fab fa-dribbble"></i>
+                                        <span class="label">Dribbble</span>
+                                        <span class="opt-val">Dribbble</span>
+                                    </div>
+                                    <div class="option">
+                                        <input class="s-c top" type="radio" name="platform" value="behance">
+                                        <input class="s-c bottom" type="radio" name="platform" value="behance">
+                                        <i class="fab fa-behance"></i>
+                                        <span class="label">Behance</span>
+                                        <span class="opt-val">Behance</span>
+                                    </div>
+                                    <div class="option">
+                                        <input class="s-c top" type="radio" name="platform" value="hackerrank">
+                                        <input class="s-c bottom" type="radio" name="platform" value="hackerrank">
+                                        <i class="fab fa-hackerrank"></i>
+                                        <span class="label">HackerRank</span>
+                                        <span class="opt-val">HackerRank</span>
+                                    </div>
+                                    <div class="option">
+                                        <input class="s-c top" type="radio" name="platform" value="stackoverflow">
+                                        <input class="s-c bottom" type="radio" name="platform" value="stackoverflow">
+                                        <i class="fab fa-stack-overflow"></i>
+                                        <span class="label">StackOverflow</span>
+                                        <span class="opt-val">StackOverflow</span>
+                                    </div>
+                                    <div class="option">
+                                        <input class="s-c top" type="radio" name="platform" value="freecodecamp">
+                                        <input class="s-c bottom" type="radio" name="platform" value="freecodecamp">
+                                        <i class="fab fa-free-code-camp"></i>
+                                        <span class="label">FreeCodeCamp</span>
+                                        <span class="opt-val">FreeCodeCamp</span>
+                                    </div>
+                                    <div id="option-bg"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tool">
+                    <div class="prompt"><span>Line Number</span></div>
+                    <div class="checkbox-wrapper-8">
+                        <input class="tgl tgl-skewed" id="cb3-8" type="checkbox" />
+                        <label class="tgl-btn" data-tg-off="OFF" data-tg-on="ON" for="cb3-8"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="help-wrapper">
+                <div class="help-inner">
+                    <div class="help-front"><i class="fa-solid fa-question"></i></div>
+                    <div class="help-back"><i class="fa-solid fa-xmark"></i></div>
+                </div>
+            </div>
+        </div>
+        <hr>
+
+        <!-- main wrapper -->
+        <div class="wrapper">
+
+        </div>
+        
+        <!-- footer -->
+        <div class="footer"></div>
+    </div>
+    <script src="/js/index.js"></script>
+    <script src="/js/help.js"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.1/dist/gsap.min.js"></script> -->
 </body>
 
