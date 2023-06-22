@@ -6,6 +6,7 @@
     text-align: center;
     transition: opacity 0.2s;
     padding: 5px;
+    cursor: pointer;
 }
 
 .help-wrapper:hover {

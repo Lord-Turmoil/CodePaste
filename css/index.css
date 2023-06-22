@@ -105,6 +105,42 @@
     background-color: lightgreen;
 }
 
+#convert {
+    --animate-duration: 1s;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: chocolate;
+    align-self: center;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#convert:hover {
+    opacity: 80%;
+}
+
+#convert i {
+    align-self: center;
+    font-size: 30px;
+}
+
+.wrapper .spin i {
+    animation: spin 1s ease 0s forwards;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 /* footer */
 .footer {
     width: 100%;
