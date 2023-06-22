@@ -269,6 +269,7 @@
     margin: 0 auto;
     background-color: #fff;
     border-radius: 4px;
+    z-index: 999;
 }
 
 #options-view-button:checked~#options {
@@ -339,7 +340,7 @@ input[type="radio"] {
 
 .s-c:hover {
     height: 100%;
-    z-index: 1;
+    z-index: 5;
 }
 
 .s-c.bottom:hover+i {

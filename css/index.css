@@ -2,6 +2,7 @@
 .border {
     width: 100%;
     min-width: 500px;
+    overflow-x: hidden;
 }
 
 .header {
@@ -53,7 +54,7 @@
     align-self: center;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 800px) {
     .tools-wrapper .tools {
         flex-direction: column;
         justify-content: flex-start;
@@ -67,4 +68,43 @@
 .tools-wrapper .help-wrapper {
     align-self: center;
     margin-left: 10px;
+}
+
+/* code panel */
+.wrapper {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    width: 95%;
+    margin: 0 auto;
+}
+
+.wrapper .panel {
+    width: 50%;
+    align-self: flex-start;
+    height: 400px;
+}
+
+@media screen and (max-width: 800px) {
+    .wrapper {
+        flex-direction: column;
+    }
+
+    .wrapper .panel {
+        width: 100%;
+    }
+}
+
+.wrapper .input {
+    background-color: lightcoral;
+}
+
+.wrapper .output {
+    background-color: lightgreen;
+}
+
+/* footer */
+.footer {
+    width: 100%;
+    height: 200px;
 }
