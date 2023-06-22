@@ -83,6 +83,8 @@
     width: 50%;
     align-self: flex-start;
     height: 400px;
+    /* z-index for the drop down... */
+    z-index: -1;
 }
 
 @media screen and (max-width: 800px) {
