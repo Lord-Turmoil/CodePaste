@@ -1,10 +1,15 @@
-/* header */
+body {
+    /* background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%); */
+    background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
 .border {
     width: 100%;
     min-width: 500px;
     overflow-x: hidden;
 }
 
+/* header */
 .header {
     padding: 10px;
     text-align: center;
