@@ -191,7 +191,7 @@
 #app-cover {
     position: absolute;
     width: 100%;
-    z-index: 1;
+    z-index: 3;
 }
 
 #select-button {
@@ -214,7 +214,7 @@
     margin: 0;
     opacity: 0;
     cursor: pointer;
-    z-index: 3;
+    z-index: 5;
 }
 
 #selected-value {
@@ -281,7 +281,7 @@
     position: relative;
     line-height: 1;
     transition: 0.3s ease all;
-    z-index: 2;
+    z-index: 4;
 }
 
 .option i {
@@ -340,7 +340,7 @@ input[type="radio"] {
 
 .s-c:hover {
     height: 100%;
-    z-index: 5;
+    z-index: 7;
 }
 
 .s-c.bottom:hover+i {
@@ -415,7 +415,7 @@ input[type="radio"] {
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: -1;
+    z-index: 1;
 }
 
 #options-view-button:not(:checked)~#options .option input[type="radio"]:checked~.opt-val {
@@ -503,7 +503,7 @@ input[type="radio"] {
     left: 0;
     height: 40px;
     transition: 0.3s ease all;
-    z-index: 1;
+    z-index: 3;
     display: none;
 }
 

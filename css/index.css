@@ -1,12 +1,12 @@
 body {
     /* background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%); */
-    background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
 }
 
 .border {
     width: 100%;
     min-width: 500px;
     overflow-x: hidden;
+    background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
 }
 
 /* header */
@@ -89,7 +89,7 @@ body {
     align-self: flex-start;
     height: 400px;
     /* z-index for the drop down... */
-    z-index: -1;
+    /* z-index: -1; */
 }
 
 @media screen and (max-width: 800px) {
