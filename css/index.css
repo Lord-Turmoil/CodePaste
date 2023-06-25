@@ -209,6 +209,33 @@ pre code .token {
 /* footer */
 .footer {
     width: 100%;
-    height: 200px;
-    background-color: aqua;
+}
+
+.footer .badge-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 10px auto;
+}
+
+.footer .badge-wrapper .badge {
+    margin: 0 5px;
+}
+
+@media screen and (max-width: 800px) {
+    .footer .badge-wrapper {
+        flex-direction: column;
+    }
+}
+
+.footer .copyright {
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: 'Lucida Handwriting';
+}
+
+.footer .copyright:hover {
+    text-decoration: underline;
 }
