@@ -35,6 +35,7 @@
     backface-visibility: hidden;
     border-radius: 50%;
     overflow: hidden;
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.1);
 }
 
 .help-wrapper .help-inner .help-front {
@@ -61,6 +62,7 @@
 .checkbox-wrapper-8 .tgl *:before,
 .checkbox-wrapper-8 .tgl+.tgl-btn {
     box-sizing: border-box;
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.1);
 }
 
 .checkbox-wrapper-8 .tgl::-moz-selection,
@@ -184,6 +186,7 @@
     border-radius: 10px;
     overflow: hidden;
     height: var(--select-height);
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.1);
 }
 
 .select select {
