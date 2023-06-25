@@ -190,14 +190,14 @@
 }
 
 .select select {
-    background-image: linear-gradient(to left, #c1dfc4 0%, #deecdd 100%);
-    background-color: #c1dfc4;
+    background-image: linear-gradient(-45deg, #c1dfc4 0%, #deecdd 100%);
+    background-color: #ddeede;
     color: #3f3f3f;
     padding: 12px;
     width: 250px;
     border: none;
     font-size: 16px;
-    /* box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2); */
+    box-shadow: none;
     -webkit-appearance: none;
     appearance: none;
     outline: none;
