@@ -11,6 +11,14 @@ Prism.plugins.NormalizeWhitespace.setDefaults({
     // 'spaces-to-tabs': 4
 });
 
+// help
+var help = $('div.help-inner');
+var isHelpOn = false;   // used in help
+help.click(function () {
+    help.toggleClass('active');
+    isHelpOn = !isHelpOn;
+    toggleHelp();
+});
 
 // converter
 var converter = $('#convert');
@@ -25,16 +33,51 @@ converter.on('click', (e) => {
 
 var input = $('#source');
 var output = $('pre>code');
-var cover = $('div.cover');
+var isEmpty = true;    // used in help
 async function makePaste() {
     // console.log(input.val());
     output.html('');
     output.text(input.val().trim());
     await Prism.highlightAll();
     if (output.html() === '') {
-        cover.show();
+        isEmpty = true;
     } else {
-        cover.hide();
+        isEmpty = false;
+    }
+    if (isHelpOn) {
+        help.click();
+    }
+
+    toggleHelp();
+}
+
+var cover = $('div.cover');
+// cover.on('animationend', (e) => {
+//     cover.removeClassRegex('animate__*');
+// });
+
+var showHelp = true;
+var interval = null;
+function toggleHelp() {
+    var show = (isEmpty || isHelpOn);
+    if (show === showHelp) {
+        return;
+    }
+    showHelp = show;
+    if (interval !== null) {
+        clearInterval(interval);
+        interval = null;
+    }
+    cover.removeClassRegex('animate__*');
+    if (showHelp) {
+        cover.addClass('animate__animated animate__fadeIn');
+        cover.show();
+    }
+    else {
+        cover.addClass('animate__animated animate__fadeOut');
+        interval = setTimeout(function () {
+            cover.hide();
+        }, 500);
     }
 }
 

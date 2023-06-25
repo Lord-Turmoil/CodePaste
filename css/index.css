@@ -125,7 +125,7 @@
 }
 
 .wrapper .animate__spin i {
-    animation: spin 1s ease 0s forwards;
+    animation: spin 0.5s ease 0s forwards;
 }
 
 @keyframes spin {
@@ -184,15 +184,25 @@ pre code .token {
 }
 
 .panel .cover {
+    --animate-duration: 0.3s;
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
     min-height: var(--panel-min-height);
     border-radius: var(--panel-border-radius);
-    background-color: rgba(0, 0, 0, 0.5);
+    background-image: linear-gradient(45deg, #a8edea 0%, #fed6e3 100%);
     z-index: 5;
+    text-align: center;
+}
+
+.panel .cover p {
+    align-self: center;
+    width: 50%;
+    margin: auto;
 }
 
 /* footer */

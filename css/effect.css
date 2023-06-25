@@ -187,13 +187,14 @@
 }
 
 .select select {
-    background-color: #0563af;
-    color: white;
+    background-image: linear-gradient(to left, #c1dfc4 0%, #deecdd 100%);
+    background-color: #c1dfc4;
+    color: #3f3f3f;
     padding: 12px;
     width: 250px;
     border: none;
     font-size: 16px;
-    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+    /* box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2); */
     -webkit-appearance: none;
     appearance: none;
     outline: none;
@@ -211,13 +212,14 @@
     text-align: center;
     font-size: 28px;
     line-height: var(--select-height);
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(0, 139, 0, 1.0);
     background-color: rgba(255, 255, 255, 0.1);
     pointer-events: none;
+    transition: 0.3s;
 }
 
 .select:hover::before {
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba(0, 139, 0, 0.8);
     background-color: rgba(255, 255, 255, 0.2);
 }
 
