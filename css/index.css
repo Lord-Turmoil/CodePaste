@@ -1,7 +1,3 @@
-body {
-    /* background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%); */
-}
-
 .border {
     width: 100%;
     min-width: 500px;
@@ -77,19 +73,24 @@ body {
 
 /* code panel */
 .wrapper {
+    --panel-min-height: 300px;
+    --panel-max-height: 500px;
+    --panel-border-radius: 10px;
+    --code-font-size: 14px;
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
     width: 95%;
-    margin: 0 auto;
+    margin: 10px auto;
 }
 
 .wrapper .panel {
     width: 50%;
     align-self: flex-start;
-    height: 400px;
-    /* z-index for the drop down... */
-    /* z-index: -1; */
+    min-height: var(--panel-min-height);
+    max-height: var(--panel-max-height);
+    border-radius: var(--panel-border-radius);
+    overflow: hidden;
 }
 
 @media screen and (max-width: 800px) {
@@ -108,6 +109,7 @@ body {
 
 .wrapper .output {
     background-color: lightgreen;
+    overflow-y: auto;
 }
 
 #convert {
@@ -132,7 +134,7 @@ body {
     font-size: 30px;
 }
 
-.wrapper .spin i {
+.wrapper .animate__spin i {
     animation: spin 1s ease 0s forwards;
 }
 
@@ -146,8 +148,38 @@ body {
     }
 }
 
+/* input text area */
+.code {
+    width: 100%;
+}
+
+#source {
+    box-sizing: border-box;
+    width: 100%;
+    resize: none;
+    border: none;
+    border-radius: 10px;
+    overflow-y: auto;
+    padding: 5px;
+    font-size: var(--code-font-size)
+}
+
+#source:focus {
+    box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* override defatul theme */
+pre {
+    margin-top: 0 !important;
+}
+
+pre code .token {
+    font-size: var(--code-font-size);
+}
+
 /* footer */
 .footer {
     width: 100%;
     height: 200px;
+    background-color: aqua;
 }

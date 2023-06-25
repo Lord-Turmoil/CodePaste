@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/fonts.css">
     <link rel="stylesheet" href="/css/effect.css">
+    <link rel="stylesheet" href="/css/prism/prism.css">
+    <link rel="stylesheet" href="/css/prism/prism-line-numbers.css">
     <!-- optional CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="/css/index.css">
@@ -41,64 +43,14 @@
                 <div class="tool">
                     <div class="prompt"><span>Language</span></div>
                     <div class="select-wrapper">
-                        <div id="app-cover">
-                            <div id="select-box">
-                                <input type="checkbox" id="options-view-button">
-                                <div id="select-button" class="brd">
-                                    <div id="selected-value">
-                                        <span>Select a platform</span>
-                                    </div>
-                                    <div id="chevrons">
-                                        <i class="fas fa-chevron-up"></i>
-                                        <i class="fas fa-chevron-down"></i>
-                                    </div>
-                                </div>
-                                <div id="options">
-                                    <div class="option">
-                                        <input class="s-c top" type="radio" name="platform" value="codepen">
-                                        <input class="s-c bottom" type="radio" name="platform" value="codepen">
-                                        <i class="fab fa-codepen"></i>
-                                        <span class="label">CodePen</span>
-                                        <span class="opt-val">CodePen</span>
-                                    </div>
-                                    <div class="option">
-                                        <input class="s-c top" type="radio" name="platform" value="dribbble">
-                                        <input class="s-c bottom" type="radio" name="platform" value="dribbble">
-                                        <i class="fab fa-dribbble"></i>
-                                        <span class="label">Dribbble</span>
-                                        <span class="opt-val">Dribbble</span>
-                                    </div>
-                                    <div class="option">
-                                        <input class="s-c top" type="radio" name="platform" value="behance">
-                                        <input class="s-c bottom" type="radio" name="platform" value="behance">
-                                        <i class="fab fa-behance"></i>
-                                        <span class="label">Behance</span>
-                                        <span class="opt-val">Behance</span>
-                                    </div>
-                                    <div class="option">
-                                        <input class="s-c top" type="radio" name="platform" value="hackerrank">
-                                        <input class="s-c bottom" type="radio" name="platform" value="hackerrank">
-                                        <i class="fab fa-hackerrank"></i>
-                                        <span class="label">HackerRank</span>
-                                        <span class="opt-val">HackerRank</span>
-                                    </div>
-                                    <div class="option">
-                                        <input class="s-c top" type="radio" name="platform" value="stackoverflow">
-                                        <input class="s-c bottom" type="radio" name="platform" value="stackoverflow">
-                                        <i class="fab fa-stack-overflow"></i>
-                                        <span class="label">StackOverflow</span>
-                                        <span class="opt-val">StackOverflow</span>
-                                    </div>
-                                    <div class="option">
-                                        <input class="s-c top" type="radio" name="platform" value="freecodecamp">
-                                        <input class="s-c bottom" type="radio" name="platform" value="freecodecamp">
-                                        <i class="fab fa-free-code-camp"></i>
-                                        <span class="label">FreeCodeCamp</span>
-                                        <span class="opt-val">FreeCodeCamp</span>
-                                    </div>
-                                    <div id="option-bg"></div>
-                                </div>
-                            </div>
+                        <div class="select">
+                            <select>
+                                <option>Option 1</option>
+                                <option>Option 2</option>
+                                <option>Option 3</option>
+                                <option>Option 4</option>
+                                <option>Option 5</option>
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -121,15 +73,23 @@
 
         <!-- main wrapper -->
         <div class="wrapper">
-            <div class="panel input animate__animated animate__fadeInLeft"></div>
+            <div class="panel input animate__animated animate__fadeInLeft">
+                <div class="code">
+                    <textarea name="source" id="source"></textarea>
+                </div>
+            </div>
             <div id="convert" class="animate__animated animate__flipInY"><i class="fa-solid fa-arrows-rotate"></i></div>
-            <div class="panel output animate__animated animate__fadeInRight"></div>
+            <div class="panel output animate__animated animate__fadeInRight">
+                <pre id="pre"><code class="language-css">* { margin: 0; padding: 0; }</code></pre>
+            </div>
         </div>
 
         <!-- footer -->
         <div class="footer"></div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="/js/prism/prism.js"></script>
+    <script src="/js/prism/prism-line-numbers.js"></script>
     <script src="/js/extension.js"></script>
     <script src="/js/index.js"></script>
     <script src="/js/help.js"></script>
