@@ -41,6 +41,14 @@ $("#cb3-8").change(function () {
     Prism.highlightAll();
 });
 
+// language
+$('#lang').change(function () {
+    var optionSelected = $(this).find("option:selected");
+    var valueSelected = optionSelected.val();
+    var textSelected = optionSelected.text();
+    console.log(valueSelected);
+});
+
 
 // auto-fit text area
 // Reference: https://stackoverflow.com/questions/454202/creating-a-textarea-with-auto-resize
