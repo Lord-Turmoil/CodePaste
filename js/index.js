@@ -1,3 +1,17 @@
+// normalize plugin
+Prism.plugins.NormalizeWhitespace.setDefaults({
+    'remove-trailing': true,
+    'remove-indent': true,
+    'left-trim': true,
+    'right-trim': true,
+    // 'break-lines': 80,
+    // 'indent': 4,
+    // 'remove-initial-line-feed': true,
+    // 'tabs-to-spaces': 4
+    // 'spaces-to-tabs': 4
+});
+
+
 // converter
 var converter = $('#convert');
 converter.on('animationend', (e) => {
@@ -11,14 +25,17 @@ converter.on('click', (e) => {
 
 var input = $('#source');
 var output = $('pre>code');
-function makePaste() {
+var cover = $('div.cover');
+async function makePaste() {
     // console.log(input.val());
-    var code = input.val();
-    if (code === '') {
-        code = ' ';
+    output.html('');
+    output.text(input.val().trim());
+    await Prism.highlightAll();
+    if (output.html() === '') {
+        cover.show();
+    } else {
+        cover.hide();
     }
-    output.html(code);
-    Prism.highlightAll();
 }
 
 // panel
@@ -42,17 +59,16 @@ $("#cb3-8").change(function () {
 });
 
 // language
+var code = $('#code');
 $('#lang').change(function () {
     var optionSelected = $(this).find("option:selected");
-    var valueSelected = optionSelected.val();
-    var textSelected = optionSelected.text();
-    console.log(valueSelected);
+    var cls = 'language-' + optionSelected.val();
+    code.removeClass().addClass(cls);
 });
 
 
 // auto-fit text area
 // Reference: https://stackoverflow.com/questions/454202/creating-a-textarea-with-auto-resize
-
 const MIN_HEIGHT = 300;
 const MAX_HEIGHT = 500;
 $("textarea").each(function () {

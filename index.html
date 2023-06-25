@@ -44,16 +44,34 @@
                     <div class="select-wrapper">
                         <div class="select" id="lang">
                             <select>
-                                <!-- css+clike+javascript+java+json+json5+yaml -->
-                                <option value="bash">Bash</option>
-                                <option value="c">C</option>
-                                <option value="cpp">C++</option>
-                                <option value="csharp">C#</option>
-                                <option value="css">CSS</option>
-                                <option value="java">Java</option>
-                                <option value="javascript">JavaScript</option>
-                                <option value="json">Json</option>
-                                <option value="yaml">YAML</option>
+                                <optgroup label="Development">
+                                    <option value="c">C</option>
+                                    <option value="cpp">C++</option>
+                                    <option value="csharp">C#</option>
+                                    <option value="go">Go</option>
+                                    <option value="java">Java</option>
+                                    <option value="python">Python</option>
+                                    <option value="rust">Rust</option>
+                                    <option value="swift">Swift</option>
+                                </optgroup>
+                                <optgroup label="Web">
+                                    <option value="html">HTML</option>
+                                    <option value="css">CSS</option>
+                                    <option value="javascript">JavaScript</option>
+                                </optgroup>
+                                <optgroup label="Markup Language">
+                                    <option value="xml">XML</option>
+                                    <option value="json">JSON</option>
+                                    <option value="yaml">YAML</option>
+                                    <option value="markdown">Markdown</option>
+                                    <option value="latex">LaTeX</option>
+                                </optgroup>
+                                <optgroup label="Others">
+                                    <option value="bash">Bash</option>
+                                    <option value="makefile">Makefile</option>
+                                    <option value="cmake">CMake</option>
+                                    <option value="sql">SQL</option>
+                                </optgroup>
                             </select>
                         </div>
                     </div>
@@ -79,12 +97,15 @@
         <div class="wrapper">
             <div class="panel input animate__animated animate__fadeInLeft">
                 <div class="code">
-                    <textarea name="source" id="source"></textarea>
+                    <textarea name="source" id="source" placeholder="Paste your code here..."></textarea>
                 </div>
             </div>
             <div id="convert" class="animate__animated animate__flipInY"><i class="fa-solid fa-arrows-rotate"></i></div>
             <div class="panel output animate__animated animate__fadeInRight">
-                <pre id="pre"><code class="language-css">* { margin: 0; padding: 0; }</code></pre>
+                <div class="cover"></div>
+                <div class="code">
+                    <pre id="pre"><code id="code" class="language-c"></code></pre>
+                </div>
             </div>
         </div>
 

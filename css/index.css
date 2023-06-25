@@ -85,12 +85,11 @@
 }
 
 .wrapper .panel {
+    position: relative;
     width: 50%;
     align-self: flex-start;
     min-height: var(--panel-min-height);
     max-height: var(--panel-max-height);
-    border-radius: var(--panel-border-radius);
-    overflow: hidden;
 }
 
 @media screen and (max-width: 800px) {
@@ -103,15 +102,6 @@
     }
 }
 
-.wrapper .input {
-    background-color: lightcoral;
-}
-
-.wrapper .output {
-    background-color: lightgreen;
-    overflow-y: auto;
-}
-
 #convert {
     --animate-duration: 1s;
     width: 50px;
@@ -119,7 +109,7 @@
     display: flex;
     justify-content: center;
     border-radius: 50%;
-    background-color: chocolate;
+    /* background-color: chocolate; */
     align-self: center;
     cursor: pointer;
     transition: 0.3s;
@@ -149,8 +139,17 @@
 }
 
 /* input text area */
-.code {
+.wrapper .panel {
+    min-height: var(--panel-min-height);
+}
+
+.wrapper .panel .code {
+    box-sizing: border-box;
     width: 100%;
+    min-height: var(--panel-min-height);
+    max-height: var(--panel-max-height);
+    border-radius: var(--panel-border-radius);
+    overflow: hidden;
 }
 
 #source {
@@ -158,23 +157,42 @@
     width: 100%;
     resize: none;
     border: none;
-    border-radius: 10px;
-    overflow-y: auto;
     padding: 5px;
-    font-size: var(--code-font-size)
+    font-size: var(--code-font-size);
+    border-radius: var(--panel-border-radius);
+    z-index: 5;
 }
 
 #source:focus {
-    box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.5);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
 /* override defatul theme */
 pre {
-    margin-top: 0 !important;
+    margin: 0 !important;
+    background-color: transparent !important;
+    max-height: var(--panel-max-height);
+    overflow-y: auto;
+}
+
+pre code {
+    border-radius: var(--panel-border-radius);
 }
 
 pre code .token {
     font-size: var(--code-font-size);
+}
+
+.panel .cover {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    min-height: var(--panel-min-height);
+    border-radius: var(--panel-border-radius);
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 5;
 }
 
 /* footer */
