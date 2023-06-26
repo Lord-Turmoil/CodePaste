@@ -20,20 +20,29 @@ help.click(function () {
     toggleHelp();
 });
 
-// converter
-var converter = $('#convert');
-converter.on('animationend', (e) => {
-    converter.removeClassRegex('animate__*');
+// actions
+$('div.action').each(function() {
+    $(this).on('animationend', (e) => {
+        $(this).removeClassRegex('animate__*');
+    });
 });
 
+var converter = $('#convert');
 converter.on('click', (e) => {
-    converter.addClass('animate__spin');
+    converter.addClass('animate__animated animate__spin');
     makePaste();
+});
+
+var eraser = $('#erase');
+eraser.on('click', (e) => {
+    eraser.addClass('animate__animated animate__grow');
+    clearPaste();
 });
 
 var input = $('#source');
 var output = $('pre>code');
 var isEmpty = true;    // used in help
+
 async function makePaste() {
     // console.log(input.val());
     output.html('');
@@ -49,6 +58,12 @@ async function makePaste() {
     }
 
     toggleHelp();
+}
+
+async function clearPaste() {
+    input.val('');
+    $('#source').get(0).dispatchEvent(new Event('input'));
+    await makePaste();
 }
 
 var cover = $('div.cover');
@@ -82,9 +97,8 @@ function toggleHelp() {
 }
 
 // panel
-var panels = $('div.panel');
-panels.on('animationend', (e) => {
-    panels.each(function () {
+$('div.panel').each(function() {
+    $(this).on('animationend', (e) => {
         $(this).removeClassRegex('animate__*');
     });
 });

@@ -102,30 +102,40 @@
     }
 }
 
-#convert {
+.action-wrapper {
     --animate-duration: 1s;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+}
+
+.action-wrapper .action {
     width: 50px;
     height: 50px;
     display: flex;
     justify-content: center;
     border-radius: 50%;
-    /* background-color: chocolate; */
     align-self: center;
     cursor: pointer;
     transition: 0.3s;
 }
 
-#convert:hover {
+.action-wrapper .action:hover {
     opacity: 80%;
+    transform: scale(1.1);
 }
 
-#convert i {
+.action-wrapper .action i {
     align-self: center;
     font-size: 30px;
 }
 
-.wrapper .animate__spin i {
+.wrapper .action-wrapper .animate__spin i {
     animation: spin 0.5s ease 0s forwards;
+}
+
+.wrapper .action-wrapper .animate__grow i {
+    animation: grow 0.5s ease 0s forwards;
 }
 
 @keyframes spin {
@@ -135,6 +145,24 @@
 
     100% {
         transform: rotate(360deg);
+    }
+}
+
+@keyframes grow {
+    0% {
+        transform: scale(1.0);
+    }
+
+    20% {
+        transform: scale(0.8)
+    }
+
+    60% {
+        transform: scale(1.2)
+    }
+
+    100% {
+        transform: scale(1.0);
     }
 }
 
@@ -164,7 +192,7 @@
 }
 
 #source:focus {
-    box-shadow: rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    box-shadow: 0px 0px 6px 0px inset rgba(10, 37, 64, 0.35) ;
 }
 
 /* override defatul theme */
