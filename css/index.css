@@ -273,6 +273,7 @@ pre code .token {
 /* doc */
 .doc-wrapper {
     max-width: 1000px;
+    margin: 20px auto;
 }
 
 .doc-chapter h1 {
@@ -284,7 +285,6 @@ pre code .token {
     white-space: nowrap;
     /* it's a trick to make pill shape */
     border-radius: 100px;
-    background-color: #a8edea;
 }
 
 .doc-wrapper .bubble:hover {
