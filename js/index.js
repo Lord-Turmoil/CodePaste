@@ -11,6 +11,7 @@ Prism.plugins.NormalizeWhitespace.setDefaults({
     // 'spaces-to-tabs': 4
 });
 
+alertify.set({ delay: 1700 });
 
 // help
 var help = $('div.help-inner');
@@ -31,7 +32,7 @@ $('div.action').each(function () {
 var converter = $('#convert');
 converter.on('click', (e) => {
     converter.addClass('animate__animated animate__spin');
-    makePaste();
+    makePaste('make');
 });
 
 var eraser = $('#erase');
@@ -50,19 +51,25 @@ var input = $('#source');
 var output = $('pre>code');
 var isEmpty = true;    // used in help
 
-async function makePaste() {
+async function makePaste(type) {
     // console.log(input.val());
     output.html('');
     output.text(input.val().trim());
     await Prism.highlightAll();
     if (output.html() === '') {
         isEmpty = true;
+        if (type === 'clear') {
+            alertify.success("Code paste cleared 🥹");
+        } else {
+            alertify.message("The ingredient, please (> <)");
+        }
     } else {
         isEmpty = false;
         var str = output.html().toString();
         str = str.replaceAll('\n', '<br/>');
         str = normalizeString(str);
         output.html(str);
+        alertify.success("Code paste ready to go! 😋");
     }
     if (isHelpOn) {
         help.click();
@@ -74,21 +81,19 @@ async function makePaste() {
 async function clearPaste() {
     input.val('');
     $('#source').get(0).dispatchEvent(new Event('input'));
-    await makePaste();
+    await makePaste('clear');
 }
 
 async function copyPaste() {
-    alertify.set({ delay: 1700 });
-
     if (output.html() === '') {
-        alertify.message("Make your code paste first.");
+        alertify.message("Make your code paste first (> <)");
         return;
     }
 
-    if (copyHTMLElement(output.get(0))) {    
+    if (copyHTMLElement(output.get(0))) {
         alertify.success("Code paste copied to clipboard!");
     } else {
-        alertify.error("Oops! Something went wrong. :(");
+        alertify.error("Oops! Something went wrong :(");
     }
 }
 
