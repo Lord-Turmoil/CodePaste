@@ -4,22 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CodePaste</title>
+    <title>Code Paste</title>
     <link rel="shortcut icon" href="/favicon.png" type="image/x-icon">
-    <!-- required CSS -->
+    <link rel="stylesheet"
+        href="https://tonys-studio-1308383348.cos.ap-beijing.myqcloud.com/static/css/barber-shop.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/fonts.css">
     <link rel="stylesheet" href="/css/effect.css">
     <link rel="stylesheet" href="/css/prism.css">
-    <link rel="stylesheet"
-        href="https://tonys-studio-1308383348.cos.ap-beijing.myqcloud.com/static/css/barber-shop.css">
-    <!-- optional CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="/css/doc.css">
     <link rel="stylesheet" href="/css/index.css">
-    <!-- required JS -->
     <script src="https://tonys-studio-1308383348.cos.ap-beijing.myqcloud.com/static/js/pace.min.js"></script>
     <script src="/js/fontawesome.js"></script>
-
 </head>
 
 <body>
@@ -35,7 +32,7 @@
         <!-- marquee banner -->
         <div class="banner">
             <marquee behavior="scroll" direction="left">
-                <p>Welcome to Tony's CodePaste!</p>
+                <p>Welcome to Tony's Code Paste!</p>
             </marquee>
         </div>
         <hr>
@@ -106,9 +103,11 @@
             </div>
             <div class="action-wrapper">
                 <div id="convert" class="action animate__animated animate__flipInY" title="Make code paste">
-                    <i class="fa-solid fa-arrows-rotate"></i></div>
+                    <i class="fa-solid fa-arrows-rotate"></i>
+                </div>
                 <div id="erase" class="action animate__animated animate__flipInY" title="Clear code paste">
-                    <i class="fa-solid fa-eraser"></i></div>
+                    <i class="fa-solid fa-eraser"></i>
+                </div>
             </div>
             <div class="panel output animate__animated animate__fadeInRight">
                 <div class="cover">
@@ -124,6 +123,58 @@
             </div>
         </div>
         <hr />
+
+        <!-- doc -->
+        <div class="doc-wrapper doc-align-center">
+            <div class="doc-chapter">
+                <h1>Why Code Paste?</h1>
+                <div class="doc-section">
+                    <div class="doc-entry">
+                        <div class="doc-text doc-align-justify">
+                            <p class="doc-indent">If you want to add code snippets to your Office document like Word or
+                                PowerPoint, you'll probably find it hard to preserve the original format, especially the
+                                highlight.😢What's more,
+                                the common dark theme of the IDE is not suitable for presentation. Although you can
+                                convert code into image, but the background and size...😖</p>
+                            <p class="doc-indent">So is there any way to create highlighted code snippets for these
+                                documents?🤔The anser is - <b>YES</b>! And this is why Code Paste is here to help.😆Just
+                                copy and paste your code to the left panel, and select the desired language, you will
+                                then get a well highlighted code snippet with one more click.</p>
+                            <p class="doc-indent">You may wonder, why "Code Paste"?😕Well, as you know, "paste" can be both verb and noun.😏</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="doc-hr" />
+            <div class="doc-chapter">
+                <h1>- Update Log -</h1>
+                <div class="doc-section">
+                    <div class="doc-badge-base">
+                        <h2>Version 1.0</h2>
+                        <div class="doc-badge bubble glow-on-hover">
+                            <p>June 26, 2023</p>
+                        </div>
+                    </div>
+                    <div class="doc-entry">
+                        <h3>Overview</h3>
+                        <div class="doc-text">
+                            <p>First stable version</p>
+                            <p>Primary features realized</p>
+                        </div>
+                    </div>
+                    <div class="doc-entr">
+                        <h3>Limitations</h3>
+                        <div class="doc-text">
+                            <p>Could not do one-click copy</p>
+                            <p>Only support one color scheme</p>
+                            <p>Could not add line numbers to the result</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+
         <!-- footer -->
         <div class="footer">
             <div class="badge-wrapper">

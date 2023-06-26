@@ -1,0 +1,93 @@
+/* Primary styles */
+.doc-wrapper {
+    --h1-font-size: 1.6em;
+    --h2-font-size: 1.3em;
+    --h3-font-size: 1.1em;
+    --p-font-size: 1em;
+    width: 80%;
+    margin: 10px auto;
+}
+
+.doc-align-center {
+    text-align: center;
+}
+
+.doc-align-left {
+    text-align: left;
+}
+
+.doc-align-right {
+    text-align: right;
+}
+
+.doc-align-justify {
+    text-align: justify;
+}
+
+.doc-wrapper .doc-chapter {
+    margin: 14px auto 10px auto;
+}
+
+.doc-wrapper .doc-chapter h1 {
+    font-size: var(--h1-font-size);
+}
+
+.doc-wrapper .doc-section {
+    margin: 10px auto 6px auto;
+}
+
+.doc-wrapper .doc-section h2 {
+    font-size: var(--h2-font-size);
+}
+
+.doc-wrapper .doc-section .doc-indent {
+    text-indent: calc(var(--h2-font-size) * 2);
+}
+
+.doc-wrapper .doc-entry {
+    margin: 8px auto 4px auto;
+}
+
+.doc-wrapper .doc-entry h3 {
+    font-size: var(--h3-font-size);
+}
+
+.doc-wrapper .doc-entry.doc-indent {
+    text-indent: calc(var(--h3-font-size) * 2);
+}
+
+.doc-wrapper .doc-text {
+    margin: 4px auto;
+}
+
+.doc-wrapper .doc-text p {
+    margin: 8px auto;
+}
+
+.doc-wrapper .doc-text p {
+    font-size: var(--p-font-size);
+}
+
+.doc-wrapper .doc-text .doc-indent {
+    text-indent: calc(var(--p-font-size) * 2);
+}
+
+.doc-hr {
+    width: 80%;
+    margin: 5px auto;
+    height: 1px;
+    border: none;
+    background-image: linear-gradient(90deg, transparent 0%, #3f3f3f 50%, transparent 100%);
+}
+
+.doc-badge-base {
+    position: relative;
+    display: inline-block;
+}
+
+.doc-badge {
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translate(100%, -30%);
+}

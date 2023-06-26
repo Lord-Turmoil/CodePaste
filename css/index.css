@@ -55,17 +55,6 @@
     align-self: center;
 }
 
-@media screen and (max-width: 800px) {
-    .tools-wrapper .tools {
-        flex-direction: column;
-        justify-content: flex-start;
-    }
-
-    .tools-wrapper .tools .tool {
-        align-self: flex-start;
-    }
-}
-
 .tools-wrapper .help-wrapper {
     align-self: center;
     margin-left: 10px;
@@ -73,8 +62,8 @@
 
 /* code panel */
 .wrapper {
-    --panel-min-height: 300px;
-    --panel-max-height: 500px;
+    --panel-min-height: 400px;
+    --panel-max-height: 600px;
     --panel-border-radius: 10px;
     --code-font-size: 14px;
     box-sizing: border-box;
@@ -92,17 +81,7 @@
     max-height: var(--panel-max-height);
 }
 
-@media screen and (max-width: 800px) {
-    .wrapper {
-        flex-direction: column;
-    }
-
-    .wrapper .panel {
-        width: 100%;
-    }
-}
-
-.action-wrapper {
+.wrapper .action-wrapper {
     --animate-duration: 1s;
     display: flex;
     flex-direction: column;
@@ -192,7 +171,7 @@
 }
 
 #source:focus {
-    box-shadow: 0px 0px 6px 0px inset rgba(10, 37, 64, 0.35) ;
+    box-shadow: 0px 0px 6px 0px inset rgba(10, 37, 64, 0.35);
 }
 
 /* override defatul theme */
@@ -254,12 +233,6 @@ pre code .token {
     margin: 0 5px;
 }
 
-@media screen and (max-width: 800px) {
-    .footer .badge-wrapper {
-        flex-direction: column;
-    }
-}
-
 .footer .copyright {
     margin-bottom: 20px;
     text-align: center;
@@ -268,4 +241,57 @@ pre code .token {
 
 .footer .copyright:hover {
     text-decoration: underline;
+}
+
+@media screen and (max-width: 648px) {
+    .tools-wrapper .tools {
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .tools-wrapper .tools .tool {
+        align-self: flex-start;
+    }
+
+    .wrapper {
+        flex-direction: column;
+    }
+
+    .wrapper .panel {
+        width: 100%;
+    }
+
+    .wrapper .action-wrapper {
+        flex-direction: row;
+    }
+
+    .footer .badge-wrapper {
+        flex-direction: column;
+    }
+}
+
+/* doc */
+.doc-wrapper {
+    max-width: 1000px;
+}
+
+.doc-chapter h1 {
+    font-family: 'Lucida Handwriting';
+}
+
+.doc-wrapper .bubble {
+    padding: 2px 8px;
+    white-space: nowrap;
+    /* it's a trick to make pill shape */
+    border-radius: 100px;
+    background-color: #a8edea;
+}
+
+.doc-wrapper .bubble:hover {
+    color: #efefef;
+    text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+}
+
+.doc-wrapper .doc-section {
+    margin-top: 16px;
 }

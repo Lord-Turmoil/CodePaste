@@ -126,8 +126,8 @@ $('#lang').change(function () {
 
 // auto-fit text area
 // Reference: https://stackoverflow.com/questions/454202/creating-a-textarea-with-auto-resize
-const MIN_HEIGHT = 300;
-const MAX_HEIGHT = 500;
+const MIN_HEIGHT = 400;
+const MAX_HEIGHT = 600;
 $("textarea").each(function () {
     this.setAttribute("style", "height:" + (MIN_HEIGHT) + "px;");
 }).on("input", function () {
