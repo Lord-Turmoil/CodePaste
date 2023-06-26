@@ -78,7 +78,18 @@ async function clearPaste() {
 }
 
 async function copyPaste() {
-    copyHTMLElement(output.get(0));
+    alertify.set({ delay: 1700 });
+
+    if (output.html() === '') {
+        alertify.message("Make your code paste first.");
+        return;
+    }
+
+    if (copyHTMLElement(output.get(0))) {    
+        alertify.success("Code paste copied to clipboard!");
+    } else {
+        alertify.error("Oops! Something went wrong. :(");
+    }
 }
 
 var cover = $('div.cover');
@@ -140,7 +151,7 @@ $('#lang').change(function () {
 // auto-fit text area
 // Reference: https://stackoverflow.com/questions/454202/creating-a-textarea-with-auto-resize
 const MIN_HEIGHT = 400;
-const MAX_HEIGHT = 500;
+const MAX_HEIGHT = 600;
 $("textarea").each(function () {
     this.setAttribute("style", "height:" + (MIN_HEIGHT) + "px;");
 }).on("input", function () {

@@ -70,7 +70,7 @@ body {
 /* code panel */
 .wrapper {
     --panel-min-height: 400px;
-    --panel-max-height: 500px;
+    --panel-max-height: 600px;
     --panel-border-radius: 10px;
     --code-font-size: 14px;
     box-sizing: border-box;
