@@ -323,3 +323,12 @@ pre code .token {
 .alertify-notifier .ajs-message.ajs-error {
     background: rgba(254, 26, 0, 0.9) !important;
 }
+
+.coffee {
+    width: 80%;
+    margin: auto;
+}
+
+.coffee img {
+    width: 100%;
+}

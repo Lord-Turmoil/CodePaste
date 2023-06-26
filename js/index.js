@@ -38,7 +38,6 @@ converter.on('click', (e) => {
 var eraser = $('#erase');
 eraser.on('click', (e) => {
     eraser.addClass('animate__animated animate__grow');
-    alertify.alert("Hello");
     clearPaste();
 });
 
@@ -99,10 +98,6 @@ async function copyPaste() {
 }
 
 var cover = $('div.cover');
-// cover.on('animationend', (e) => {
-//     cover.removeClassRegex('animate__*');
-// });
-
 var showHelp = true;
 var interval = null;
 function toggleHelp() {
@@ -173,4 +168,11 @@ $("textarea").each(function () {
         }
     }
     this.style.height = (targetHeight) + "px";
+});
+
+// support
+var supporter = $('#coffee');
+supporter.on('click', (e) => {
+    supporter.addClass('animate__animated animate__grow');
+    alertify.alert("Buy me a coffee 🍵", `<div class="coffee"><img src="/res/img/payment.jpg" alt="WeChat Pay" title="Scan to support me"><p>We appreciate your sponsorship!🌹</p></div>`);
 });
