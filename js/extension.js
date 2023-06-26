@@ -17,3 +17,26 @@ $.fn.removeClassRegex = function (pattern) {
         }
     });
 }
+
+// replace spaces with &nbsp; in string form html while skipping tags
+// here we assume that the string is legal
+function normalizeString(str) {
+    var res = "";
+    var length = str.length;
+    var cnt = 0;
+
+    for (var i = 0; i < length; i++) {
+        if (str[i] === ' ') {
+            res += (cnt === 0) ? '&nbsp;' :  ' ';
+        } else {
+            res += str[i];
+            if (str[i] === '<') {
+                cnt++;
+            } else if (str[i] === '>') {
+                cnt--;
+            }
+        }
+    }
+
+    return res;
+}

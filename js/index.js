@@ -11,6 +11,7 @@ Prism.plugins.NormalizeWhitespace.setDefaults({
     // 'spaces-to-tabs': 4
 });
 
+
 // help
 var help = $('div.help-inner');
 var isHelpOn = false;   // used in help
@@ -21,7 +22,7 @@ help.click(function () {
 });
 
 // actions
-$('div.action').each(function() {
+$('div.action').each(function () {
     $(this).on('animationend', (e) => {
         $(this).removeClassRegex('animate__*');
     });
@@ -52,6 +53,10 @@ async function makePaste() {
         isEmpty = true;
     } else {
         isEmpty = false;
+        var str = output.html().toString();
+        str = str.replaceAll('\n', '<br/>');
+        str = normalizeString(str);
+        output.html(str);
     }
     if (isHelpOn) {
         help.click();
@@ -87,8 +92,7 @@ function toggleHelp() {
     if (showHelp) {
         cover.addClass('animate__animated animate__fadeIn');
         cover.show();
-    }
-    else {
+    } else {
         cover.addClass('animate__animated animate__fadeOut');
         interval = setTimeout(function () {
             cover.hide();
@@ -97,7 +101,7 @@ function toggleHelp() {
 }
 
 // panel
-$('div.panel').each(function() {
+$('div.panel').each(function () {
     $(this).on('animationend', (e) => {
         $(this).removeClassRegex('animate__*');
     });
@@ -108,8 +112,7 @@ var pre = $('#pre');
 $("#cb3-8").change(function () {
     if (this.checked) {
         pre.addClass('line-numbers');
-    }
-    else {
+    } else {
         pre.removeClass('line-numbers');
     }
     Prism.highlightAll();
@@ -127,7 +130,7 @@ $('#lang').change(function () {
 // auto-fit text area
 // Reference: https://stackoverflow.com/questions/454202/creating-a-textarea-with-auto-resize
 const MIN_HEIGHT = 400;
-const MAX_HEIGHT = 600;
+const MAX_HEIGHT = 500;
 $("textarea").each(function () {
     this.setAttribute("style", "height:" + (MIN_HEIGHT) + "px;");
 }).on("input", function () {
@@ -136,8 +139,7 @@ $("textarea").each(function () {
     if (targetHeight > MAX_HEIGHT) {
         $(this).addClass('full');
         targetHeight = MAX_HEIGHT;
-    }
-    else {
+    } else {
         $(this).removeClass('full');
         if (targetHeight < MIN_HEIGHT) {
             targetHeight = MIN_HEIGHT;
