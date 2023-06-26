@@ -11,7 +11,7 @@ Prism.plugins.NormalizeWhitespace.setDefaults({
     // 'spaces-to-tabs': 4
 });
 
-alertify.set({ delay: 1700 });
+alertify.set('notifier', 'delay', 1.5);
 
 // help
 var help = $('div.help-inner');
@@ -38,6 +38,7 @@ converter.on('click', (e) => {
 var eraser = $('#erase');
 eraser.on('click', (e) => {
     eraser.addClass('animate__animated animate__grow');
+    alertify.alert("Hello");
     clearPaste();
 });
 
@@ -61,7 +62,7 @@ async function makePaste(type) {
         if (type === 'clear') {
             alertify.success("Code paste cleared 🥹");
         } else {
-            alertify.message("The ingredient, please (> <)");
+            alertify.warning("The ingredient, please (> <)");
         }
     } else {
         isEmpty = false;
@@ -86,7 +87,7 @@ async function clearPaste() {
 
 async function copyPaste() {
     if (output.html() === '') {
-        alertify.message("Make your code paste first (> <)");
+        alertify.warning("Make your code paste first (> <)");
         return;
     }
 

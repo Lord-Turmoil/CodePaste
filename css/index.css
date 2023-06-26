@@ -306,3 +306,20 @@ pre code .token {
 .doc-wrapper .doc-section {
     margin-top: 16px;
 }
+
+/* alertify */
+.alertify-notifier .ajs-message {
+    border-radius: 100px;
+}
+
+.alertify-notifier .ajs-message.ajs-success {
+    background: rgba(92, 184, 17, 0.9) !important;
+}
+
+.alertify-notifier .ajs-message.ajs-warning {
+    background: rgba(255, 185, 15, 0.9) !important;
+}
+
+.alertify-notifier .ajs-message.ajs-error {
+    background: rgba(254, 26, 0, 0.9) !important;
+}
