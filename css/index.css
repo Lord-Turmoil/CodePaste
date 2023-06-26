@@ -1,6 +1,13 @@
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
 .border {
     width: 100%;
     min-width: 500px;
+    min-height: 100%;
     overflow-x: hidden;
     background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
 }
