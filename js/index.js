@@ -60,7 +60,7 @@ async function makePaste(type) {
         isEmpty = true;
         if (type === 'clear') {
             alertify.success("Code paste cleared🥹");
-        } else {
+        } else if (type == 'make') {
             alertify.warning("The ingredient, please (> <)");
         }
     } else {
@@ -69,7 +69,9 @@ async function makePaste(type) {
         str = str.replaceAll('\n', '<br/>');
         str = normalizeString(str);
         output.html(str);
-        alertify.success("Code paste ready to go!😋");
+        if (type == 'make') {
+            alertify.success("Code paste ready to go!😋");
+        }
     }
     if (isHelpOn) {
         help.click();
@@ -137,7 +139,7 @@ $("#cb3-8").change(function () {
     } else {
         pre.removeClass('line-numbers');
     }
-    Prism.highlightAll();
+    makePaste('lineno');
 });
 
 // language
