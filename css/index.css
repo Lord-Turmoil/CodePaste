@@ -225,6 +225,7 @@ pre code .token {
 /* footer */
 .footer {
     width: 100%;
+    text-align: center;
 }
 
 .footer .badge-wrapper {
@@ -241,6 +242,8 @@ pre code .token {
 }
 
 .footer .copyright {
+    display: inline-block;
+    margin: auto;
     margin-bottom: 20px;
     text-align: center;
     font-family: 'Lucida Handwriting';
