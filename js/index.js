@@ -59,7 +59,7 @@ async function makePaste(type) {
     if (output.html() === '') {
         isEmpty = true;
         if (type === 'clear') {
-            alertify.success("Code paste cleared 🥹");
+            alertify.success("Code paste cleared🥹");
         } else {
             alertify.warning("The ingredient, please (> <)");
         }
@@ -69,7 +69,7 @@ async function makePaste(type) {
         str = str.replaceAll('\n', '<br/>');
         str = normalizeString(str);
         output.html(str);
-        alertify.success("Code paste ready to go! 😋");
+        alertify.success("Code paste ready to go!😋");
     }
     if (isHelpOn) {
         help.click();
@@ -91,7 +91,7 @@ async function copyPaste() {
     }
 
     if (copyHTMLElement(output.get(0))) {
-        alertify.success("Code paste copied to clipboard!");
+        alertify.success("Code paste copied to clipboard!🤩");
     } else {
         alertify.error("Oops! Something went wrong :(");
     }

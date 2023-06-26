@@ -310,6 +310,7 @@ pre code .token {
 /* alertify */
 .alertify-notifier .ajs-message {
     border-radius: 100px;
+    text-align: center;
 }
 
 .alertify-notifier .ajs-message.ajs-success {
