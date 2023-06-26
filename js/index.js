@@ -40,6 +40,12 @@ eraser.on('click', (e) => {
     clearPaste();
 });
 
+var copier = $('#copy');
+copier.on('click', (e) => {
+    copier.addClass('animate__animated animate__grow');
+    copyPaste();
+});
+
 var input = $('#source');
 var output = $('pre>code');
 var isEmpty = true;    // used in help
@@ -69,6 +75,10 @@ async function clearPaste() {
     input.val('');
     $('#source').get(0).dispatchEvent(new Event('input'));
     await makePaste();
+}
+
+async function copyPaste() {
+    copyHTMLElement(output.get(0));
 }
 
 var cover = $('div.cover');

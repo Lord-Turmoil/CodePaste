@@ -192,6 +192,7 @@ pre {
 
 pre code {
     border-radius: var(--panel-border-radius);
+    font-size: var(--code-font-size) !important;
 }
 
 pre code .token {
