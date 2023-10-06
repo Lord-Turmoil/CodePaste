@@ -37,7 +37,7 @@ converter.on('click', (e) => {
 
 var eraser = $('#erase');
 eraser.on('click', (e) => {
-    eraser.addClass('animate__animated animate__grow');
+    eraser.addClass('animate__animated animate__shake');
     clearPaste();
 });
 
@@ -188,4 +188,10 @@ var supporter = $('#coffee');
 supporter.on('click', (e) => {
     supporter.addClass('animate__animated animate__grow');
     alertify.alert("Buy me a coffee 🍵", `<div class="coffee"><img src="/res/img/payment.jpg" alt="WeChat Pay" title="Scan to support me"><p>We appreciate your sponsorship!🌹</p></div>`);
+});
+
+// Random code.
+var random = $('#random');
+random.on('click', (e) => {
+    random.addClass('animate__animated animate__rubber');
 });

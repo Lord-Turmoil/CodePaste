@@ -122,35 +122,108 @@ body {
     animation: spin 0.5s ease 0s forwards;
 }
 
-.wrapper .action-wrapper .animate__grow i {
-    animation: grow 0.5s ease 0s forwards;
-}
-
 @keyframes spin {
     0% {
+        -webkit-transform: rotate(0);
         transform: rotate(0);
     }
 
     100% {
+        -webkit-transform: rotate(360deg);
         transform: rotate(360deg);
     }
 }
 
+.wrapper .action-wrapper .animate__grow i {
+    animation: grow 0.5s ease 0s forwards;
+}
+
 @keyframes grow {
     0% {
+        -webkit-transform: scale(1.0);
         transform: scale(1.0);
     }
 
     20% {
-        transform: scale(0.8)
+        -webkit-transform: scale(0.8);
+        transform: scale(0.8);
     }
 
     60% {
-        transform: scale(1.2)
+        -webkit-transform: scale(1.2);
+        transform: scale(1.2);
     }
 
     100% {
+        -webkit-transform: scale(1.0);
         transform: scale(1.0);
+    }
+}
+
+.wrapper .action-wrapper .animate__shake i {
+    animation: shake 0.5s ease 0s forwards;
+}
+
+@keyframes shake {
+
+    0%,
+    to {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0)
+    }
+
+    20%,
+    60% {
+        -webkit-transform: translate3d(-5px, 0, 0);
+        transform: translate3d(-5px, 0, 0)
+    }
+
+
+    40%,
+    80% {
+        -webkit-transform: translate3d(5px, 0, 0);
+        transform: translate3d(5px, 0, 0)
+    }
+}
+
+.wrapper .action-wrapper .animate__rubber i {
+    animation: rubber 0.5s ease 0s forwards;
+}
+
+@keyframes rubber {
+    0% {
+        -webkit-transform: scaleX(1);
+        transform: scaleX(1)
+    }
+
+    30% {
+        -webkit-transform: scale3d(1.25, .75, 1);
+        transform: scale3d(1.25, .75, 1)
+    }
+
+    40% {
+        -webkit-transform: scale3d(.75, 1.25, 1);
+        transform: scale3d(.75, 1.25, 1)
+    }
+
+    50% {
+        -webkit-transform: scale3d(1.15, .85, 1);
+        transform: scale3d(1.15, .85, 1)
+    }
+
+    65% {
+        -webkit-transform: scale3d(.95, 1.05, 1);
+        transform: scale3d(.95, 1.05, 1)
+    }
+
+    75% {
+        -webkit-transform: scale3d(1.05, .95, 1);
+        transform: scale3d(1.05, .95, 1)
+    }
+
+    to {
+        -webkit-transform: scale(1);
+        transform: scale(1)
     }
 }
 
