@@ -12,6 +12,7 @@
 // });
 
 alertify.set('notifier', 'delay', 1.5);
+alertify.set('notifier', 'position', 'bottom-left');
 
 // help
 var help = $('div.help-inner');
@@ -60,7 +61,7 @@ async function makePaste(type) {
     if (output.html() === '') {
         isEmpty = true;
         if (type === 'clear') {
-            alertify.success("Code paste cleared🥹");
+            alertify.success("Code paste already cleared 🥹");
         } else if (type == 'make') {
             alertify.warning("The ingredient, please (> <)");
         }
@@ -72,6 +73,8 @@ async function makePaste(type) {
         output.html(str);
         if (type == 'make') {
             alertify.success("Code paste ready to go!😋");
+        } else if (type == 'random') {
+            alertify.success("You like the random paste?🙃");
         }
     }
     if (isHelpOn) {
@@ -148,8 +151,7 @@ $("#cb3-8").change(function () {
 var currentLanguage = "C";
 function updateLanguageTip() {
     var tip = $('div.toolbar-item span');
-    if (tip.length)
-    {
+    if (tip.length) {
         tip.text(currentLanguage);
     }
 }
@@ -157,10 +159,13 @@ function updateLanguageTip() {
 var code = $('#code');
 $('#lang').change(function () {
     var optionSelected = $(this).find("option:selected");
-    var cls = 'language-' + optionSelected.val();
-    code.removeClass().addClass(cls);
-    currentLanguage = optionSelected.text();
+    updateActiveLanguage(optionSelected.val(), optionSelected.text());
 });
+
+function updateActiveLanguage(lang, text) {
+    code.removeClass().addClass('language-' + lang);
+    currentLanguage = text;
+}
 
 // auto-fit text area
 // Reference: https://stackoverflow.com/questions/454202/creating-a-textarea-with-auto-resize
@@ -194,4 +199,55 @@ supporter.on('click', (e) => {
 var random = $('#random');
 random.on('click', (e) => {
     random.addClass('animate__animated animate__rubber');
+    makeRandomPaste();
 });
+
+// Random codes are in code.js
+
+// var curLang = 0;
+// function generateRandomLanguage(){
+//     if (curLang >= CODE_COUNT) {
+//         curLang = 0;
+//     }
+//     return Object.keys(CODE_SET)[curLang++];
+// }
+
+function generateRandomLanguage() {
+    const target = Math.floor(Math.random() * CODE_COUNT);
+    var i = 0;
+    for (const [key, value] of Object.entries(CODE_SET)) {
+        if (i == target) {
+            return key;
+        }
+        i++;
+    }
+}
+
+function getRandomLanguage() {
+    const optionSelected = $('#lang').find("option:selected");
+    const current = optionSelected.val();
+    var lang = generateRandomLanguage();
+    while (lang == current) {
+        lang = generateRandomLanguage();
+    }
+    return lang;
+}
+
+function makeRandomPaste() {
+    // get random code
+    const lang = getRandomLanguage();
+    input.val(CODE_SET[lang]);
+    $('#source').get(0).dispatchEvent(new Event('input'));
+
+    // update language
+    $('option[value="' + lang + '"]').prop("selected", true);
+    const optionSelected = $('#lang').find("option:selected");
+    updateActiveLanguage(optionSelected.val(), optionSelected.text());
+
+    // auto trigger make
+    makePaste('random');
+}
+
+setTimeout(function () {
+    makeRandomPaste()
+}, 1000);
