@@ -367,11 +367,11 @@ pre {
 
 pre code {
     display: block;
+    box-sizing: border-box;
     border-radius: var(--panel-border-radius);
     font-size: var(--code-font-size) !important;
     box-sizing: border-box;
     width: 100% !important;
-    min-height: 100% !important;
 }
 
 pre code .token {
