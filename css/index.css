@@ -88,6 +88,7 @@ body {
     min-height: var(--panel-min-height);
     max-height: var(--panel-max-height);
     flex-grow: 0;
+    overflow-y: overlay;
 }
 
 .wrapper .action-wrapper {
@@ -427,7 +428,7 @@ body {
 /* Prism */
 /* Override default Prism theme */
 pre {
-    box-sizing: border-box;
+    box-sizing: border-box !important;
     margin: 0 !important;
     /* background-color: transparent !important; */
     max-height: var(--panel-max-height);
@@ -439,11 +440,10 @@ pre {
 }
 
 pre code {
-    display: block;
-    box-sizing: border-box;
+    display: block !important;
+    box-sizing: border-box !important;
     border-radius: var(--panel-border-radius);
     font-size: var(--code-font-size) !important;
-    box-sizing: border-box;
     width: 100% !important;
 }
 
