@@ -255,7 +255,7 @@ pre code .token {
     text-decoration: underline;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
     .tools-wrapper .tools {
         flex-direction: column;
         justify-content: flex-start;
@@ -265,6 +265,13 @@ pre code .token {
         align-self: flex-start;
     }
 
+    .tools-wrapper .tools .tool .prompt {
+        width: 8em;
+        text-align: right;
+    }
+}
+
+@media screen and (max-width: 768px) {
     .wrapper {
         flex-direction: column;
     }
