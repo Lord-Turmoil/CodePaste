@@ -87,6 +87,7 @@ body {
     align-self: flex-start;
     min-height: var(--panel-min-height);
     max-height: var(--panel-max-height);
+    flex-grow: 0;
 }
 
 .wrapper .action-wrapper {
@@ -372,4 +373,10 @@ pre code .token {
 pre {
     padding: 0 !important;
     border: none !important;
+}
+
+code {
+    box-sizing: border-box;
+    width: 100% !important;
+    min-height: 400px;
 }
