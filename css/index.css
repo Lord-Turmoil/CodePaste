@@ -87,6 +87,9 @@ body {
     align-self: flex-start;
     min-height: var(--panel-min-height);
     max-height: var(--panel-max-height);
+    flex-grow: 0;
+    overflow: hidden;
+    overflow-y: overlay;
 }
 
 .wrapper .action-wrapper {
@@ -121,35 +124,108 @@ body {
     animation: spin 0.5s ease 0s forwards;
 }
 
-.wrapper .action-wrapper .animate__grow i {
-    animation: grow 0.5s ease 0s forwards;
-}
-
 @keyframes spin {
     0% {
+        -webkit-transform: rotate(0);
         transform: rotate(0);
     }
 
     100% {
+        -webkit-transform: rotate(360deg);
         transform: rotate(360deg);
     }
 }
 
+.wrapper .action-wrapper .animate__grow i {
+    animation: grow 0.5s ease 0s forwards;
+}
+
 @keyframes grow {
     0% {
+        -webkit-transform: scale(1.0);
         transform: scale(1.0);
     }
 
     20% {
-        transform: scale(0.8)
+        -webkit-transform: scale(0.8);
+        transform: scale(0.8);
     }
 
     60% {
-        transform: scale(1.2)
+        -webkit-transform: scale(1.2);
+        transform: scale(1.2);
     }
 
     100% {
+        -webkit-transform: scale(1.0);
         transform: scale(1.0);
+    }
+}
+
+.wrapper .action-wrapper .animate__shake i {
+    animation: shake 0.5s ease 0s forwards;
+}
+
+@keyframes shake {
+
+    0%,
+    to {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0)
+    }
+
+    20%,
+    60% {
+        -webkit-transform: translate3d(-5px, 0, 0);
+        transform: translate3d(-5px, 0, 0)
+    }
+
+
+    40%,
+    80% {
+        -webkit-transform: translate3d(5px, 0, 0);
+        transform: translate3d(5px, 0, 0)
+    }
+}
+
+.wrapper .action-wrapper .animate__rubber i {
+    animation: rubber 0.5s ease 0s forwards;
+}
+
+@keyframes rubber {
+    0% {
+        -webkit-transform: scaleX(1);
+        transform: scaleX(1)
+    }
+
+    30% {
+        -webkit-transform: scale3d(1.25, .75, 1);
+        transform: scale3d(1.25, .75, 1)
+    }
+
+    40% {
+        -webkit-transform: scale3d(.75, 1.25, 1);
+        transform: scale3d(.75, 1.25, 1)
+    }
+
+    50% {
+        -webkit-transform: scale3d(1.15, .85, 1);
+        transform: scale3d(1.15, .85, 1)
+    }
+
+    65% {
+        -webkit-transform: scale3d(.95, 1.05, 1);
+        transform: scale3d(.95, 1.05, 1)
+    }
+
+    75% {
+        -webkit-transform: scale3d(1.05, .95, 1);
+        transform: scale3d(1.05, .95, 1)
+    }
+
+    to {
+        -webkit-transform: scale(1);
+        transform: scale(1)
     }
 }
 
@@ -182,24 +258,6 @@ body {
     box-shadow: 0px 0px 6px 0px inset rgba(10, 37, 64, 0.35);
 }
 
-/* override defatul theme */
-pre {
-    margin: 0 !important;
-    background-color: transparent !important;
-    max-height: var(--panel-max-height);
-    overflow-x: hidden;
-    overflow-y: auto;
-}
-
-pre code {
-    border-radius: var(--panel-border-radius);
-    font-size: var(--code-font-size) !important;
-}
-
-pre code .token {
-    font-size: var(--code-font-size);
-}
-
 .panel .cover {
     --animate-duration: 0.3s;
     position: absolute;
@@ -215,7 +273,7 @@ pre code .token {
     z-index: 5;
     text-align: center;
     overflow: auto;
-    box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.1) inset;
 }
 
 .panel .cover p {
@@ -265,6 +323,13 @@ pre code .token {
         align-self: flex-start;
     }
 
+    .tools-wrapper .tools .tool .prompt {
+        width: 8em;
+        text-align: right;
+    }
+}
+
+@media screen and (max-width: 768px) {
     .wrapper {
         flex-direction: column;
     }
@@ -359,4 +424,30 @@ pre code .token {
 
 .coffee img {
     width: 100%;
+}
+
+/* Prism */
+/* Override default Prism theme */
+pre {
+    box-sizing: border-box !important;
+    margin: 0 !important;
+    /* background-color: transparent !important; */
+    max-height: var(--panel-max-height);
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 5px !important;
+    /* border: none !important; */
+    min-height: 400px !important;
+}
+
+pre code {
+    display: block !important;
+    box-sizing: border-box !important;
+    border-radius: var(--panel-border-radius);
+    font-size: var(--code-font-size) !important;
+    width: 100% !important;
+}
+
+pre code .token {
+    font-size: var(--code-font-size);
 }
