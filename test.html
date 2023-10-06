@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/prism.min.js"></script>
+    <link id="theme" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism.min.css" />
+</head>
+
+<body>
+    <select id="theme-selector">
+        <option value="prism" selected="selected">Default</option>
+        <option value="a11y-dark">a11y Dark</option>
+        <option value="base16-ateliersulphurpool.light">Ateliersulphurpool-light</option>
+        <option value="atom-dark">Atom Dark</option>
+        <option value="cb">CB</option>
+        <option value="coldark-cold">Coldark Cold</option>
+        <option value="coldark-dark">Coldark Dark</option>
+        <option value="prism-dark">Dark</option>
+        <option value="coy-without-shadows">Coy</option>
+        <option value="darcula">Darcula</option>
+        <option value="dracula">Dracula</option>
+        <option value="duotone-dark">Duotone Dark</option>
+        <option value="duotone-earth">Duotone Earth</option>
+        <option value="duotone-forest">Duotone Forest</option>
+        <option value="duotone-light">Duotone Light</option>
+        <option value="duotone-sea">Duotone Sea</option>
+        <option value="duotone-space">Duotone Space</option>
+        <option value="prism-funky">Funky</option>
+        <option value="ghcolors">GHColors</option>
+        <option value="gruvbox-dark">Gruvbox Dark</option>
+        <option value="gruvbox-light">Gruvbox Light</option>
+        <option value="holi-theme">Holi Theme</option>
+        <option value="hopscotch">Hopscotch</option>
+        <option value="lucario">Lucario</option>
+        <option value="material-dark">Material Dark</option>
+        <option value="material-light">Material Light</option>
+        <option value="material-oceanic">Material Oceanic</option>
+        <option value="night-owl">Night Owl</option>
+        <option value="nord">Nord</option>
+        <option value="prism-okaidia">Okaidia</option>
+        <option value="one-dark">One Dark</option>
+        <option value="one-light">One Light</option>
+        <option value="pojoaque">Pojoaque</option>
+        <option value="shades-of-purple">Shades of Purple</option>
+        <option value="solarized-dark-atom">Solarized Dark Atom</option>
+        <option value="prism-solarizedlight">Solarized Light</option>
+        <option value="synthwave84">Synthwave '84</option>
+        <option value="prism-tomorrow">Tomorrow Night</option>
+        <option value="prism-twilight">Twilight</option>
+        <option value="vs">VS</option>
+        <option value="vsc-dark-plus">VS Code Dark+</option>
+        <option value="xonokai">Xonokai</option>
+        <option value="z-touch">Z-Touch</option>
+    </select>
+
+    <pre class="language-javascript"><code id="code">//changes theme
+function set_theme_from_id(id) {
+  let url = get_theme_url_from_id(id)
+  if(url == null) return null
+  
+  let theme_url = url.replace(/\{id}/g, id);
+  $('#theme').attr('href', theme_url)
+};</code></pre>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+<script src="js/prism-theme.js"></script>
+</body>
+
+</html>
