@@ -360,3 +360,9 @@ pre code .token {
 .coffee img {
     width: 100%;
 }
+
+/* Prism */
+pre {
+    padding: 0 !important;
+    border: none !important;
+}
