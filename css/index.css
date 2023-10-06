@@ -238,7 +238,7 @@ body {
     text-decoration: underline;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 768px) {
     .tools-wrapper .tools {
         flex-direction: column;
         justify-content: flex-start;
