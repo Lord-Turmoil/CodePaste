@@ -220,7 +220,7 @@ const CODE_SET = {
     "swift": CODE_SWIFT,
     "html": CODE_HTML,
     "css": CODE_CSS,
-    "js": CODE_JS,
+    "javascript": CODE_JS,
     "xml": CODE_XML,
     "json": CODE_JSON,
     "yaml": CODE_YAML,
