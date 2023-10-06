@@ -47,6 +47,7 @@ copier.on('click', (e) => {
     copyPaste();
 });
 
+// Prism core converter.
 var input = $('#source');
 var output = $('pre>code');
 var isEmpty = true;    // used in help
@@ -78,6 +79,7 @@ async function makePaste(type) {
     }
 
     toggleHelp();
+    updateLanguageTip();
 }
 
 async function clearPaste() {
@@ -143,13 +145,22 @@ $("#cb3-8").change(function () {
 });
 
 // language
+var currentLanguage = "C";
+function updateLanguageTip() {
+    var tip = $('div.toolbar-item span');
+    if (tip.length)
+    {
+        tip.text(currentLanguage);
+    }
+}
+
 var code = $('#code');
 $('#lang').change(function () {
     var optionSelected = $(this).find("option:selected");
     var cls = 'language-' + optionSelected.val();
     code.removeClass().addClass(cls);
+    currentLanguage = optionSelected.text();
 });
-
 
 // auto-fit text area
 // Reference: https://stackoverflow.com/questions/454202/creating-a-textarea-with-auto-resize
