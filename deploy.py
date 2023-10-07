@@ -12,6 +12,7 @@ print()
 
 # deploy to GitHub Pages
 print('Deploying to GitHub Pages...')
+os.system('git checkout deploy')
 os.system('git add .')
 os.system('git commit -m "replace absolute path with relative path in index.html"')
 os.system('git push origin deploy')
