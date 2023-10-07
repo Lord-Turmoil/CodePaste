@@ -1,4 +1,4 @@
-# CodePaste
+# Code Paste
 
 Copyright &copy; Tony's Studio 2023
 
@@ -7,6 +7,11 @@ Copyright &copy; Tony's Studio 2023
 ## Description
 
 This tool provides you the ability to create highlighted code for Microsoft Office, mainly for Word and PowerPoint. You can use it to create a beautiful code block in your document or presentation.
+
+### Try it!
+
+- [Code Paste on Tony's Studio](http://paste.tonys-studio.top/)
+- [Code Paste on GitHub Page](https://lord-turmoil.github.io/CodePaste/)
 
 ## Instruction
 
