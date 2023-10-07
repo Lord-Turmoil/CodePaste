@@ -13,6 +13,6 @@ print()
 # deploy to GitHub Pages
 print('Deploying to GitHub Pages...')
 os.system('git add .')
-os.system('git commit -m "deploy"')
+os.system('git commit -m "replace absolute path with relative path in index.html"')
 os.system('git push origin delpoy')
 print('Done!')
