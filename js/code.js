@@ -95,6 +95,14 @@ const CODE_JS = `function fibonacci(n) {
     }
 }`
 
+const CODE_PHP = `<?php
+$languages = array("JavaScript", "Python", "PHP", "Ruby", "Java");
+
+foreach ($languages as $language) {
+    echo "I like $language.\n";
+}
+?>`
+
 const CODE_XML = `<?xml version="1.0" encoding="UTF-8"?>
 <bookstore>
   <book category="fiction">
@@ -163,6 +171,53 @@ else
     echo "$name is an adult."
 fi`
 
+const CODE_POWERSHELL = `$name = "John"
+
+for ($i = 1; $i -le 5; $i++) {
+    Write-Host "Hello, $name! This is message number $i."
+}`
+
+const CODE_BATCH = `@echo off
+
+set name=John
+set age=30
+
+if %age% lss 18 (
+    echo %name% is a minor.
+) else (
+    echo %name% is an adult.
+)`
+
+const CODE_LUA = `function printNumbers(n)
+for i = 1, n do
+    print(i)
+end
+end
+
+printNumbers(10)`
+
+const CODE_PERL = `sub printNumbers {
+    my $n = shift;
+    for (my $i = 1; $i <= $n; $i++) {
+        print "$i\n";
+    }
+}
+
+printNumbers(10);`
+
+const CODE_RUBY = `name = "John"
+age = 30
+
+if age < 18
+    puts "#{name} is a minor."
+else
+    puts "#{name} is an adult."
+end
+
+5.times do |i|
+    puts "This is message number #{i + 1}."
+end`
+
 const CODE_MAKEFILE = `CC = gcc
 CFLAGS = -Wall -Wextra -pedantic
 
@@ -209,6 +264,22 @@ VALUES (1, 'John Doe', 'johndoe@example.com'),
 
 SELECT * FROM users;`
 
+const CODE_VERILOG = `module counter(
+    input clk,
+    input rst,
+    output reg [7:0] count
+);
+
+always @(posedge clk, posedge rst) begin
+    if (rst) begin
+        count <= 0;
+    end else begin
+        count <= count + 1;
+    end
+end
+
+endmodule`
+
 const CODE_SET = {
     "c": CODE_C,
     "cpp": CODE_CPP,
@@ -221,15 +292,22 @@ const CODE_SET = {
     "html": CODE_HTML,
     "css": CODE_CSS,
     "javascript": CODE_JS,
+    "php": CODE_PHP,
     "xml": CODE_XML,
     "json": CODE_JSON,
     "yaml": CODE_YAML,
     "markdown": CODE_MARKDOWN,
     "latex": CODE_LATEX,
     "bash": CODE_BASH,
+    "powershell": CODE_POWERSHELL,
+    "batch": CODE_BATCH,
+    "lua": CODE_LUA,
+    "perl": CODE_PERL,
+    "ruby": CODE_RUBY,
     "makefile": CODE_MAKEFILE,
     "cmake": CODE_CMAKE,
-    "sql": CODE_SQL
+    "sql": CODE_SQL,
+    "verilog": CODE_VERILOG
 };
 
 const CODE_COUNT = Object.keys(CODE_SET).length;
