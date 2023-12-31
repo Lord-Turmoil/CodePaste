@@ -65,6 +65,14 @@ function set_theme_from_id(id) {
     $('#theme').attr('href', theme_url)
 };
 
+
+
 $('#theme-selector').change(function () {
     window.set_theme_from_id(this.value)
+    localStorage.setItem("theme", this.value);
 })
+
+if (localStorage.getItem("theme") != null) {
+    window.set_theme_from_id(localStorage.getItem("theme"));
+    $('#theme-selector').val(localStorage.getItem("theme"));
+}
