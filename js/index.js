@@ -1,16 +1,3 @@
-// normalize plugin
-// Prism.plugins.NormalizeWhitespace.setDefaults({
-//     'remove-trailing': true,
-//     'remove-indent': true,
-//     'left-trim': true,
-//     'right-trim': true,
-//     // 'break-lines': 80,
-//     // 'indent': 4,
-//     // 'remove-initial-line-feed': true,
-//     'tabs-to-spaces': 4
-//     // 'spaces-to-tabs': 4
-// });
-
 alertify.set('notifier', 'delay', 1.5);
 alertify.set('notifier', 'position', 'bottom-left');
 
@@ -153,17 +140,6 @@ $('div.panel').each(function () {
     });
 });
 
-// line-no
-var pre = $('#pre');
-$("#cb3-8").change(function () {
-    if (this.checked) {
-        pre.addClass('line-numbers');
-    } else {
-        pre.removeClass('line-numbers');
-    }
-    makePaste('lineno');
-});
-
 // language
 var currentLanguage = "C";
 function updateLanguageTip() {
@@ -177,6 +153,7 @@ var code = $('#code');
 $('#lang').change(function () {
     var optionSelected = $(this).find("option:selected");
     updateActiveLanguage(optionSelected.val(), optionSelected.text());
+    localStorage.setItem("language", optionSelected.val());
 });
 
 function updateActiveLanguage(lang, text) {
@@ -221,14 +198,6 @@ random.on('click', (e) => {
 
 // Random codes are in code.js
 
-// var curLang = 0;
-// function generateRandomLanguage(){
-//     if (curLang >= CODE_COUNT) {
-//         curLang = 0;
-//     }
-//     return Object.keys(CODE_SET)[curLang++];
-// }
-
 function generateRandomLanguage() {
     const target = Math.floor(Math.random() * CODE_COUNT);
     var i = 0;
@@ -265,6 +234,30 @@ function makeRandomPaste() {
     makePaste('random');
 }
 
-setTimeout(function () {
-    makeRandomPaste()
-}, 1000);
+function makeRandomPasteWithLang(lang) {
+    // get random code
+    input.val(CODE_SET[lang]);
+    $('#source').get(0).dispatchEvent(new Event('input'));
+
+    // update language
+    $('option[value="' + lang + '"]').prop("selected", true);
+    const optionSelected = $('#lang').find("option:selected");
+    updateActiveLanguage(optionSelected.val(), optionSelected.text());
+
+    // auto trigger make
+    makePaste('random');
+}
+
+if (localStorage.getItem("language") != null) {
+    $('option[value="' + localStorage.getItem("language") + '"]').prop("selected", true);
+    const optionSelected = $('#lang').find("option:selected");
+    updateActiveLanguage(optionSelected.val(), optionSelected.text());
+    setTimeout(function () {
+        makeRandomPasteWithLang(localStorage.getItem("language"));
+    }, 1000);
+}
+else {
+    setTimeout(function () {
+        makeRandomPaste()
+    }, 1000);
+}
