@@ -261,3 +261,8 @@ else {
         makeRandomPaste()
     }, 1000);
 }
+
+if (localStorage.getItem("notify") == null) {
+    alertify.alert("Notification 🔔", `<div class="notification"><p>We use <a href="https://clarity.microsoft.com/" target="_blank">Microsoft Clarity</a> to provide you with better user experience.</p><br/><p>By continuing, it means you accept this tracker.🖲️</p></div>`);
+    localStorage.setItem("notify", true);
+}
