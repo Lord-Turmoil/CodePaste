@@ -99,7 +99,7 @@ const CODE_PHP = `<?php
 $languages = array("JavaScript", "Python", "PHP", "Ruby", "Java");
 
 foreach ($languages as $language) {
-    echo "I like $language.\n";
+    echo "I like $language.\\n";
 }
 ?>`
 
