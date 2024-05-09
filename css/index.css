@@ -313,7 +313,7 @@ body {
     text-decoration: underline;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 850px) {
     .tools-wrapper .tools {
         flex-direction: column;
         justify-content: flex-start;
@@ -437,13 +437,15 @@ body {
 pre {
     box-sizing: border-box !important;
     margin: 0 !important;
-    /* background-color: transparent !important; */
     max-height: var(--panel-max-height);
     overflow-x: hidden;
     overflow-y: auto;
     padding: 5px !important;
-    /* border: none !important; */
     min-height: 400px !important;
+}
+
+pre.line-numbers {
+    padding-left: 50px !important;
 }
 
 pre code {

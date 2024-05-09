@@ -161,6 +161,18 @@ function updateActiveLanguage(lang, text) {
     currentLanguage = text;
 }
 
+// Line number.
+var pre = $('#pre');
+$("#cb3-8").change(function () {
+    if (this.checked) {
+        pre.addClass('line-numbers');
+    } else {
+        pre.removeClass('line-numbers');
+    }
+    localStorage.setItem("lineno", this.checked);
+    makePaste('lineno');
+});
+
 // auto-fit text area
 // Reference: https://stackoverflow.com/questions/454202/creating-a-textarea-with-auto-resize
 const MIN_HEIGHT = 400;
@@ -248,6 +260,15 @@ function makeRandomPasteWithLang(lang) {
     makePaste('random');
 }
 
+
+if (localStorage.getItem("lineno") != null) {
+    const value = localStorage.getItem("lineno")
+    if (value === 'true') {
+        $("#cb3-8").get(0).checked = value;
+        pre.addClass('line-numbers');
+    }
+}
+
 if (localStorage.getItem("language") != null) {
     $('option[value="' + localStorage.getItem("language") + '"]').prop("selected", true);
     const optionSelected = $('#lang').find("option:selected");
@@ -261,6 +282,7 @@ else {
         makeRandomPaste()
     }, 1000);
 }
+
 
 if (localStorage.getItem("notify") == null) {
     alertify.alert("Notification 🔔", `<div class="notification"><p>We use <a href="https://clarity.microsoft.com/" target="_blank">Microsoft Clarity</a> to provide you with better user experience.</p><br/><p>By continuing, it means you accept this tracker.🖲️</p></div>`);

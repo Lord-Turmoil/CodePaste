@@ -210,8 +210,8 @@
     position: absolute;
     top: 0;
     right: 0;
-    width: 20%;
     height: 100%;
+    aspect-ratio: 1;
     text-align: center;
     font-size: 28px;
     line-height: var(--select-height);
