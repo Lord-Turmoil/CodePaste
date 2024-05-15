@@ -459,3 +459,20 @@ pre code {
 pre code .token {
     font-size: var(--code-font-size);
 }
+
+pre code table {
+    font-family: inherit;
+    border-collapse: collapse;
+}
+
+pre code table tr .lineno {
+    text-align: right;
+    padding-right: 5px;
+    width: 20px;
+    --color: #ccc;
+    border-right: 0.5px solid var(--color);
+}
+
+pre code table tr .line {
+    padding-left: 5px;
+}
