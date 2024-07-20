@@ -459,3 +459,9 @@ pre code {
 pre code .token {
     font-size: var(--code-font-size);
 }
+
+/* on copy overload */
+.code.copy pre,
+.code.copy pre code {
+    background: transparent !important;
+}
