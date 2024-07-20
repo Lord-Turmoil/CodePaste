@@ -103,21 +103,6 @@ function restoreStyle() {
     $('.code').removeClass('copy');
 }
 
-async function copyPaste() {
-    if (output.html() === '') {
-        alertify.warning("Make your code paste first (> <)");
-        return;
-    }
-
-    overloadStyle();
-    if (copyHTMLElement(output.get(0))) {
-        alertify.success("Code paste copied to clipboard!🤩");
-    } else {
-        alertify.error("Oops! Something went wrong :(");
-    }
-    restoreStyle();
-}
-
 var cover = $('div.cover');
 var showHelp = true;
 var interval = null;
@@ -182,6 +167,7 @@ $("#cb3-8").change(function () {
     localStorage.setItem("lineno", this.checked);
     makePaste('lineno');
 });
+const hasLineNo = () => $("#cb3-8").get(0).checked;
 
 // auto-fit text area
 // Reference: https://stackoverflow.com/questions/454202/creating-a-textarea-with-auto-resize
@@ -270,6 +256,65 @@ function makeRandomPasteWithLang(lang) {
     makePaste('random');
 }
 
+async function copyPaste() {
+    if (output.html() === '') {
+        alertify.warning("Make your code paste first (> <)");
+        return;
+    }
+
+    overloadStyle();
+    if (copyPasteImpl(output.get(0))) {
+        alertify.success("Code paste copied to clipboard!🤩");
+    } else {
+        alertify.error("Oops! Something went wrong :(");
+    }
+    restoreStyle();
+}
+
+function copyPasteImpl(element) {
+    if (hasLineNo()) {
+        const backup = element.innerHTML;
+        if (copyHTMLElement(transformPaste(element))) {
+            element.innerHTML = backup;
+            return true;
+        }
+        return false;
+    } else {
+        return copyHTMLElement(element);
+    }
+}
+
+// Transform paste into table.
+function transformPaste(element) {
+    var content = element.innerHTML;
+    // Remove last <span> element.
+    var pos = content.lastIndexOf('<span aria-hidden="true" class="line-numbers-rows">');
+    content = content.substring(0, pos);
+
+    // Split content by <br>
+    var lines = content.split('<br>');
+    var table = '<table>';
+    for (var i = 0; i < lines.length; i++) {
+        table += '<tr><td class="lineno" width="3em">' + (i + 1) + '</td><td class="line">' + lines[i] + '</td></tr>';
+    }
+    table += '</table>';
+    console.log(table);
+
+    // Get dynamic styles.
+    var borderStyle = window.getComputedStyle($('.line-numbers .line-numbers-rows').get(0), null).getPropertyValue('border-right');
+    var height = window.getComputedStyle($('code[class*=language-] .line-numbers-rows span').get(0), null).getPropertyValue('height');
+    var fontStyle = window.getComputedStyle($('code[class*=language-], pre[class*=language-]').get(0), null).getPropertyValue('font-family');
+    console.log($('.command-line .command-line-prompt>span:before, .line-numbers .line-numbers-rows>span:before').get(0));
+    var tableElement = element.cloneNode(false);
+    tableElement.innerHTML = table;
+    element.innerHTML = table;
+
+    borderStyle = borderStyle.substring(borderStyle.indexOf('rgba'));
+    $('pre code table tr td').css('font-family', fontStyle);
+    $('pre code table tr').css('height', height);
+
+    return element;
+}
 
 if (localStorage.getItem("lineno") != null) {
     const value = localStorage.getItem("lineno")
@@ -292,7 +337,6 @@ else {
         makeRandomPaste()
     }, 1000);
 }
-
 
 if (localStorage.getItem("notify") == null) {
     alertify.alert("Notification 🔔", `<div class="notification"><p>We use <a href="https://clarity.microsoft.com/" target="_blank">Microsoft Clarity</a> to provide you with better user experience.</p><br/><p>By continuing, it means you accept this tracker.🖲️</p></div>`);
