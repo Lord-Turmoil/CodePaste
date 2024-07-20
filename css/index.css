@@ -468,7 +468,6 @@ pre code table {
 pre code table tr .lineno {
     text-align: right;
     padding-right: 5px;
-    width: 20px;
     --color: #ccc;
     border-right: 0.5px solid var(--color);
 }

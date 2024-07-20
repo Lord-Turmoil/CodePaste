@@ -103,21 +103,6 @@ function restoreStyle() {
     $('.code').removeClass('copy');
 }
 
-async function copyPaste() {
-    if (output.html() === '') {
-        alertify.warning("Make your code paste first (> <)");
-        return;
-    }
-
-    overloadStyle();
-    if (copyHTMLElement(output.get(0))) {
-        alertify.success("Code paste copied to clipboard!🤩");
-    } else {
-        alertify.error("Oops! Something went wrong :(");
-    }
-    restoreStyle();
-}
-
 var cover = $('div.cover');
 var showHelp = true;
 var interval = null;
@@ -277,11 +262,13 @@ async function copyPaste() {
         return;
     }
 
+    overloadStyle();
     if (copyPasteImpl(output.get(0))) {
         alertify.success("Code paste copied to clipboard!🤩");
     } else {
         alertify.error("Oops! Something went wrong :(");
     }
+    restoreStyle();
 }
 
 function copyPasteImpl(element) {
@@ -308,7 +295,7 @@ function transformPaste(element) {
     var lines = content.split('<br>');
     var table = '<table>';
     for (var i = 0; i < lines.length; i++) {
-        table += '<tr><td class="lineno">' + (i + 1) + '</td><td class="line">' + lines[i] + '</td></tr>';
+        table += '<tr><td class="lineno" width="3em">' + (i + 1) + '</td><td class="line">' + lines[i] + '</td></tr>';
     }
     table += '</table>';
     console.log(table);
