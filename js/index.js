@@ -95,6 +95,29 @@ async function clearPaste() {
     await makePaste('clear');
 }
 
+function overloadStyle() {
+    $('.code').addClass('copy');
+}
+
+function restoreStyle() {
+    $('.code').removeClass('copy');
+}
+
+async function copyPaste() {
+    if (output.html() === '') {
+        alertify.warning("Make your code paste first (> <)");
+        return;
+    }
+
+    overloadStyle();
+    if (copyHTMLElement(output.get(0))) {
+        alertify.success("Code paste copied to clipboard!🤩");
+    } else {
+        alertify.error("Oops! Something went wrong :(");
+    }
+    restoreStyle();
+}
+
 var cover = $('div.cover');
 var showHelp = true;
 var interval = null;

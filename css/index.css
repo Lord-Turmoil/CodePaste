@@ -476,3 +476,9 @@ pre code table tr .lineno {
 pre code table tr .line {
     padding-left: 5px;
 }
+
+/* on copy overload */
+.code.copy pre,
+.code.copy pre code {
+    background: transparent !important;
+}
