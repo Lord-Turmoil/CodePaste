@@ -363,9 +363,15 @@ if (localStorage.getItem("notify") == null) {
 }
 
 if (localStorage.getItem("mode") != null) {
-    isDark = localStorage.getItem("mode") == "dark";
+    isDark = localStorage.getItem("mode") === "dark";
     if (isDark) {
-        mode.addClass('active');
+        if (!window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            toggleMode();
+        }
+        mode.toggleClass('active');
+    } else {
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            toggleMode();
+        }
     }
-    toggleMode();
 }
