@@ -421,4 +421,8 @@ _______|_______/__/ ____ \__\__|___\__\__|___\__\____
     .expand:active {
         background-color: rgb(82, 88, 92);
     }
+
+    .code {
+        filter: brightness(0.85);
+    }
 }
