@@ -15,7 +15,7 @@ const CODE_CPP = `#include <iostream>
 
 int main() {
     std::cout << "Hello, there!" << std::endl;
-    std::cout << "General Grevious!" << std::endl;
+    std::cout << "General Grievous!" << std::endl;
 
     return 0;
 }`;
