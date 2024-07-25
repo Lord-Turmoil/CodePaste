@@ -12,9 +12,11 @@ fetch("./version.json")
 
 function render(versions) {
     var options = { year: 'numeric', month: 'long', day: 'numeric' };
-    html = "";
+    var latest = "";
+    var previous = "";
     versions = versions.reverse();
-    versions.forEach((version) => {
+    versions.forEach((version, index) => {
+        html = "";
         html += '<div class="doc-badge-base">';
         html += '<h2>Version ' + version.version + '</h2>';
         html += '<div class="doc-badge bubble glow-on-hover">';
@@ -31,6 +33,31 @@ function render(versions) {
             html += '</div>';
         });
         html += '</div>';
+        if (index == 0) {
+            latest = html;
+        } else {
+            previous += html;
+        }
     });
-    $("#version").html(html);
+    $(`#latest`).html(latest);
+    $(`#previous`).html(previous);
 }
+
+const expandMore = $("#expand-more");
+const expandLess = $("#expand-less");
+const previous = $("#previous");
+
+function expand() {
+    previous.removeClass("hidden");
+    previous.height(previous[0].scrollHeight);
+    expandMore.addClass("hidden");
+    expandLess.removeClass("hidden");
+}
+function collapse() {
+    previous.addClass("hidden");
+    previous.height(0);
+    expandMore.removeClass("hidden");
+    expandLess.addClass("hidden");
+}
+expandMore.click(expand);
+expandLess.click(collapse);
