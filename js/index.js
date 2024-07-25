@@ -77,7 +77,6 @@ input.on('keydown', function (e) {
 
 
 async function makePaste(type) {
-    // console.log(input.val());
     output.html('');
     output.text(input.val().trim());
     await Prism.highlightAll();
@@ -324,13 +323,11 @@ function transformPaste(element) {
         table += '<tr><td class="lineno" width="3em">' + (i + 1) + '</td><td class="line">' + lines[i] + '</td></tr>';
     }
     table += '</table>';
-    console.log(table);
 
     // Get dynamic styles.
     var borderStyle = window.getComputedStyle($('.line-numbers .line-numbers-rows').get(0), null).getPropertyValue('border-right');
     var height = window.getComputedStyle($('code[class*=language-] .line-numbers-rows span').get(0), null).getPropertyValue('height');
     var fontStyle = window.getComputedStyle($('code[class*=language-], pre[class*=language-]').get(0), null).getPropertyValue('font-family');
-    console.log($('.command-line .command-line-prompt>span:before, .line-numbers .line-numbers-rows>span:before').get(0));
     var tableElement = element.cloneNode(false);
     tableElement.innerHTML = table;
     element.innerHTML = table;
