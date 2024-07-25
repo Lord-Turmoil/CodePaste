@@ -477,8 +477,11 @@ pre code table tr .line {
 }
 
 /* on copy overload */
-.code.copy pre,
-.code.copy pre code {
+.code.pre-copy>.code-toolbar>pre[class*=language-] {
+    transition: background 1s;
+}
+
+.code.copy>.code-toolbar>pre[class*=language-] {
     background: transparent !important;
 }
 

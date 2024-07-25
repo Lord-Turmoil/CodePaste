@@ -114,12 +114,15 @@ async function clearPaste() {
     await makePaste('clear');
 }
 
-function overloadStyle() {
+async function overloadStyle() {
+    $('.code').addClass('pre-copy');
     $('.code').addClass('copy');
+    await new Promise(r => setTimeout(r, 100));
 }
 
 function restoreStyle() {
     $('.code').removeClass('copy');
+    $('.code').removeClass('pre-copy');
 }
 
 var cover = $('div.cover');
@@ -281,7 +284,7 @@ async function copyPaste() {
         return;
     }
 
-    overloadStyle();
+    await overloadStyle();
     if (copyPasteImpl(output.get(0))) {
         alertify.success("Code paste copied to clipboard!🤩");
     } else {
@@ -291,16 +294,20 @@ async function copyPaste() {
 }
 
 function copyPasteImpl(element) {
+    const backupElem = element.innerHTML;
+
+    var target = element;
+    var ret = true;
+
     if (hasLineNo()) {
-        const backup = element.innerHTML;
-        if (copyHTMLElement(transformPaste(element))) {
-            element.innerHTML = backup;
-            return true;
-        }
-        return false;
-    } else {
-        return copyHTMLElement(element);
+        target = transformPaste(element);
     }
+    if (!copyHTMLElement(target)) {
+        ret = false;
+    }
+    element.innerHTML = backupElem;
+
+    return ret;
 }
 
 // Transform paste into table.
