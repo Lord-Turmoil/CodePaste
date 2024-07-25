@@ -408,4 +408,17 @@ _______|_______/__/ ____ \__\__|___\__\__|___\__\____
     .action i {
         color: #c5c3c1;
     }
+
+    .expand {
+        background-color: rgb(62, 68, 70);
+    }
+
+    .expand:hover {
+        background-color: rgb(72, 78, 81);
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 2px;
+    }
+
+    .expand:active {
+        background-color: rgb(82, 88, 92);
+    }
 }
