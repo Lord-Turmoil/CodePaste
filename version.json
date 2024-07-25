@@ -131,6 +131,7 @@
                 "items": [
                     "Introduced native dark mode",
                     "Improved animation effects",
+                    "Disabled spell check and completion for input box",
                     "Copy code with line numbers (Experimental)"
                 ]
             },
