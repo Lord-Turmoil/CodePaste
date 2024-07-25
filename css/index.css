@@ -481,3 +481,39 @@ pre code table tr .line {
 .code.copy pre code {
     background: transparent !important;
 }
+
+.expand {
+    display: inline-block;
+    padding: 5px 15px;
+    background-color: #bbb;
+    border-radius: 1000px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.expand.hidden {
+    display: none;
+}
+
+.expand i {
+    margin-left: 5px;
+}
+
+.expand:hover {
+    background-color: #aaa;
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.1);
+    transform: scale(1.05);
+}
+
+.expand:active {
+    background-color: #999;
+}
+
+#previous {
+    transition: height 1s;
+}
+
+#previous.hidden {
+    height: 0;
+    overflow: hidden;
+}
