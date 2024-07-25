@@ -1,5 +1,5 @@
 .border * {
-    transition: color 0.3s, background-color 0.3s, border-color 0.3s;
+    transition: .3s;
 }
 
 /* flip badge */

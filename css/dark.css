@@ -259,12 +259,12 @@ hr {
     --p-font-size: 1em;
 }
 
-.doc-hr {
+/* .doc-hr {
     background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgb(47, 51, 53) 50%, rgba(0, 0, 0, 0) 100%);
     border-color: initial;
     border-style: none;
     border-width: initial;
-}
+} */
 
 .alertify .ajs-dimmer {
     background-color: rgb(28, 30, 31);
