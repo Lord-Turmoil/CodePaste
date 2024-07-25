@@ -123,13 +123,15 @@
         ]
     },
     {
-        "version": "2.3.1",
-        "date": "2024.7.20",
+        "version": "3.0.1",
+        "date": "2024.7.25",
         "entries": [
             {
                 "title": "Changes",
                 "items": [
-                    "Now can copy line number when Line Number is enabled"
+                    "Introduced native dark mode",
+                    "Improved animation effects",
+                    "Copy code with line numbers (Experimental)"
                 ]
             },
             {
@@ -141,8 +143,7 @@
             {
                 "title": "Notice",
                 "items": [
-                    "You may need to manually adjust column width after pasting",
-                    "Line number copy has some compatibility issues with Microsoft PowerPoint"
+                    "You may need to manually adjust font and column width after pasting"
                 ]
             }
         ]
