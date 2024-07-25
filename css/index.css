@@ -485,6 +485,10 @@ pre code table tr .line {
     background: transparent !important;
 }
 
+.code>.code-toolbar>pre[class*=language-]>code * {
+    background: transparent !important;
+}
+
 .expand {
     display: inline-block;
     padding: 5px 15px;
