@@ -2,13 +2,32 @@ alertify.set('notifier', 'delay', 1.5);
 alertify.set('notifier', 'position', 'bottom-left');
 
 // help
-var help = $('div.help-inner');
+var help = $('#help');
 var isHelpOn = false;   // used in help
 help.click(function () {
     help.toggleClass('active');
     isHelpOn = !isHelpOn;
     toggleHelp();
 });
+
+// dark/light mode
+var mode = $('#mode');
+var isDark = false;
+mode.click(function () {
+    mode.toggleClass('active');
+    isDark = !isDark;
+    toggleMode();
+});
+
+function toggleMode() {
+    if (isDark) {
+        $('#mode-css').attr('href', "css/dark.css");
+        localStorage.setItem("mode", "dark");
+    } else {
+        $('#mode-css').attr('href', "");
+        localStorage.setItem("mode", "light");
+    }
+}
 
 // actions
 $('div.action').each(function () {
@@ -341,4 +360,12 @@ else {
 if (localStorage.getItem("notify") == null) {
     alertify.alert("Notification 🔔", `<div class="notification"><p>We use <a href="https://clarity.microsoft.com/" target="_blank">Microsoft Clarity</a> to provide you with better user experience.</p><br/><p>By continuing, it means you accept this tracker.🖲️</p></div>`);
     localStorage.setItem("notify", true);
+}
+
+if (localStorage.getItem("mode") != null) {
+    isDark = localStorage.getItem("mode") == "dark";
+    if (isDark) {
+        mode.addClass('active');
+    }
+    toggleMode();
 }

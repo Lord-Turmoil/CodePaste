@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="css/doc.css">
     <link rel="stylesheet" href="css/alertify.min.css">
     <link rel="stylesheet" href="css/index.css">
+    <link id="mode-css" rel="stylesheet" href="">
 
     <!-- Clarity -->
     <script type="text/javascript">
@@ -174,10 +175,17 @@
                     </div>
                 </div>
             </div>
-            <div class="help-wrapper">
-                <div class="help-inner">
-                    <div class="help-front" title="Show help"><i class="fa-solid fa-question"></i></div>
-                    <div class="help-back" title="Hide help"><i class="fa-solid fa-xmark"></i></div>
+            <div class="flip-wrapper">
+                <div class="flip-inner" id="help">
+                    <div class="flip-front" title="Show help"><i class="fa-solid fa-question"></i></div>
+                    <div class="flip-back" title="Hide help"><i class="fa-solid fa-xmark"></i></div>
+                </div>
+            </div>
+            <div class="flip-wrapper">
+                <div class="flip-inner" id="mode">
+                    <div class="flip-front" title="Toggle dark mode"><i class="fa-solid fa-jedi"></i></div>
+                    <div class="flip-back" title="Toggle light mode" style=" background-color:rgb(165, 5, 5)"><i
+                            class="fa-brands fa-sith"></i></div>
                 </div>
             </div>
         </div>
