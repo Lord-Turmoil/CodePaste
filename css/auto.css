@@ -404,4 +404,8 @@ _______|_______/__/ ____ \__\__|___\__\__|___\__\____
     .alertify .ajs-dialog .ajs-button:hover {
         box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 3px 2px;
     }
+
+    .action i {
+        color: #c5c3c1;
+    }
 }

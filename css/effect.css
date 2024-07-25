@@ -1,5 +1,14 @@
-.border * {
-    transition: .3s;
+:root {
+    --mode-transition: 0.2s;
+}
+
+html,
+body,
+.border,
+.border textarea,
+.tool *,
+.code * {
+    transition: var(--mode-transition);
 }
 
 /* flip badge */
@@ -314,4 +323,8 @@
 
 ::-webkit-scrollbar-corner {
     background-color: #181a1b;
+}
+
+.action i {
+    color: #181a1b;
 }
