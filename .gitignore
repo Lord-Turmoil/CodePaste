@@ -1,2 +1,4 @@
-config.json
 .vscode/
+node_modules/
+dist/
+config.json

@@ -1,3 +1,6 @@
 @ECHO OFF
-call PseudoFTP.Client transfer -s . -l CodePaste --overwrite
+
+call minify.bat
+call PseudoFTP.Client transfer -s dist -l CodePaste -f --overwrite
+
 PAUSE
