@@ -44,3 +44,10 @@ For production release, there is `minify.bat`, which will produce a minified ver
 - [UglifyJS](https://github.com/mishoo/UglifyJS)
 - Python (to minify JSON)
 
+To be more specific, you can install the dependencies with the following commands.
+
+```powershell
+npm install
+npm install html-minifier -g
+npm install uglify-js -g
+```
