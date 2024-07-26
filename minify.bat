@@ -18,7 +18,7 @@ ECHO Minifying JS
 @REM create dist folder
 mkdir dist\js
 @REM set options
-set options=--compress --mangle reserved=['$'] --mangle-props reserved=['removeClassRegex']
+set options=--compress --mangle reserved=['$']
 @REM iterate all js files in src/js folder
 for %%f in (src\js\*.js) do (
     @REM minify js file
