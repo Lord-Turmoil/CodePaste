@@ -1,11 +1,9 @@
-# Simple workflow for deploying static content to GitHub Pages
 name: Deploy CodePaste
 
 on:
-  # Runs on pushes targeting the default branch
   push:
-    branches: ["release"]
-
+    branches: ["main"]
+  
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
@@ -19,11 +17,8 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  # Single deploy job since we're just deploying
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  # Build job to minify the project
+  build:
     runs-on: windows-latest
     steps:
       - name: Checkout
@@ -39,21 +34,29 @@ jobs:
           npm install
           npm install html-minifier -g
           npm install uglify-js -g
-      
+
       - name: Install Python
         uses: actions/setup-python@v2
         with:
           python-version: "3.x"
-
+          
       - name: Minify Project
         run: |
           .\minify.bat
-
+      
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: 'dist'
-          
+
+  # Deploy job to GitHub Pages
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: windows-latest
+    needs: build
+    steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
