@@ -19,7 +19,7 @@ concurrency:
 jobs:
   # Build job to minify the project
   build:
-    runs-on: windows-latest
+    runs-on: linux-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -32,6 +32,12 @@ jobs:
       - name: Install dependencies
         run: |
           npm install
+
+      - name: Add Secret Files
+        run: |
+          echo ${{ secrets.NOTIFICATION }} > src/views/components/notification.html
+          echo ${{ secrets.STATISTICS }} > src/views/components/statistics.html
+          echo ${{ secrets.SUPPORT }} > src/views/components/support.html
 
       - name: Install Python
         uses: actions/setup-python@v2
@@ -52,7 +58,7 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: windows-latest
+    runs-on: linux-latest
     needs: build
     steps:
       - name: Deploy to GitHub Pages
