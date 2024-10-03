@@ -322,7 +322,7 @@ class CodeSet {
      */
     getRandomLanguage(avoid) {
         if (avoid === null) {
-            avoid = '';
+            avoid = "";
         }
         var lang = this.nextRandomLanguage();
         while (lang === avoid) {
@@ -340,7 +340,7 @@ class CodeSet {
         if (this.hasLanguage(lang)) {
             return this.code[lang];
         }
-        return 'Oops, write your own code!';
+        return "Oops, write your own code!";
     }
 
     hasLanguage(lang) {

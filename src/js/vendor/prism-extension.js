@@ -1,4 +1,4 @@
-import $ from "./jquery-extensions";
+import $ from "~/vendor/jquery-extensions";
 
 const themes = {
     "https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/{id}.min.css": [
@@ -48,7 +48,7 @@ const themes = {
         "xonokai",
         "z-touch"
     ]
-}
+};
 
 
 //url for id from dictionary
@@ -56,15 +56,21 @@ function getThemeUrl(id) {
     for (const [key, value] of Object.entries(themes)) {
         if (value.includes(id)) return key;
     }
-    return null
+    return null;
 }
 
 function setTheme(id) {
-    let url = getThemeUrl(id)
-    if (url == null) return null
+    let url = getThemeUrl(id);
+    if (url == null) {
+        console.error("Theme not found: " + id);
+        return null;
+    }
+    if ($("#theme-selector").val() !== id) {
+        $("#theme-selector").val(id);
+    }
 
     let theme_url = url.replace(/\{id}/g, id);
-    $('#theme').attr('href', theme_url)
+    $("#theme").attr("href", theme_url);
 
     localStorage.setItem("theme", id);
 };

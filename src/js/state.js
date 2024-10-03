@@ -1,18 +1,20 @@
-import $ from "./vendor/jquery-extensions";
+import $ from "~/vendor/jquery-extensions";
 import { makeRandomPaste } from "~/events/actions";
 import { setMode, updateLineNumber } from "~/events/options";
-import alertify from "~/vendor/alertify-extension"
+import alertify from "~/vendor/alertify-extension";
 import { getCookie, setCookie } from "./vendor/cookie-extension";
+import { setTheme } from "~/vendor/prism-extension";
 
 function restoreUserPreferences() {
+    restoreColorMode();
     restoreLanguage();
     restoreLineNumber();
-    restoreColorMode();
+    restoreTheme();
     promptAgreement();
 }
 
 function restoreLanguage() {
-    const lang = localStorage.getItem('language');
+    const lang = localStorage.getItem("language");
     if (lang) {
         setTimeout(function () {
             makeRandomPaste(lang);
@@ -27,7 +29,7 @@ function restoreLanguage() {
 function restoreLineNumber() {
     const enableLineNumber = localStorage.getItem("line-number");
     if (enableLineNumber !== null) {
-        updateLineNumber(enableLineNumber === 'true');
+        updateLineNumber(enableLineNumber === "true");
     }
 }
 
@@ -39,8 +41,15 @@ function restoreColorMode() {
     }
 }
 
+function restoreTheme() {
+    const theme = localStorage.getItem("theme");
+    if (theme !== null) {
+        setTheme(theme);
+    }
+}
+
 function promptAgreement() {
-    const agreement = $('#agreement');
+    const agreement = $("#agreement");
     const cookie = getCookie("agreement");
     if (cookie !== "") {
         return;

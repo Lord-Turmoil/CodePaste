@@ -2,36 +2,36 @@ import alertify from "~/vendor/alertify-extension";
 import $ from "~/vendor/jquery-extensions";
 
 function render(versions) {
-    var options = { year: 'numeric', month: 'long', day: 'numeric' };
+    var options = { year: "numeric", month: "long", day: "numeric" };
     var latest = "";
     var previous = "";
     versions = versions.reverse();
     versions.forEach((version, index) => {
         var html = "";
         html += '<div class="doc-badge-base">';
-        html += '<h2>Version ' + version.version + '</h2>';
+        html += "<h2>Version " + version.version + "</h2>";
         html += '<div class="doc-badge bubble glow-on-hover">';
-        html += '<p>' + new Date(version.date).toLocaleDateString("en-US", options) + '</p>';
-        html += '</div>';
-        html += '</div>'
+        html += "<p>" + new Date(version.date).toLocaleDateString("en-US", options) + "</p>";
+        html += "</div>";
+        html += "</div>";
         html += '<div class="doc-entry">';
         version.entries.forEach((entry) => {
-            html += '<h3>' + entry.title + '</h3>';
+            html += "<h3>" + entry.title + "</h3>";
             html += '<div class="doc-text">';
             entry.items.forEach((item) => {
-                html += '<p>' + item + '</p>';
+                html += "<p>" + item + "</p>";
             });
-            html += '</div>';
+            html += "</div>";
         });
-        html += '</div>';
+        html += "</div>";
         if (index == 0) {
             latest = html;
         } else {
             previous += html;
         }
     });
-    $(`#latest`).html(latest);
-    $(`#previous`).html(previous);
+    $("#latest").html(latest);
+    $("#previous").html(previous);
 }
 
 const expandMore = $("#expand-more");

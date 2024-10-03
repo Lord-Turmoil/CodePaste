@@ -12,10 +12,10 @@ function registerOnTextAreaChange() {
         this.style.height = "auto";
         var targetHeight = this.scrollHeight;
         if (targetHeight > MAX_HEIGHT) {
-            $(this).addClass('full');
+            $(this).addClass("full");
             targetHeight = MAX_HEIGHT;
         } else {
-            $(this).removeClass('full');
+            $(this).removeClass("full");
             if (targetHeight < MIN_HEIGHT) {
                 targetHeight = MIN_HEIGHT;
             }
@@ -28,7 +28,7 @@ function registerEditListeners() {
     // TODO: Using shift-tab to unindent
     // FIXME: This will empty the edit history
     $("textarea").on("keydown", function (e) {
-        if (e.key == 'Tab') {
+        if (e.key == "Tab") {
             e.preventDefault();
 
             var start = this.selectionStart;
