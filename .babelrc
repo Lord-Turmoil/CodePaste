@@ -1,0 +1,55 @@
+{
+    "plugins": [
+        [
+            "prismjs",
+            {
+                "languages": [
+                    "c",
+                    "cpp",
+                    "csharp",
+                    "go",
+                    "java",
+                    "python",
+                    "rust",
+                    "swift",
+                    "html",
+                    "css",
+                    "javascript",
+                    "php",
+                    "xml",
+                    "json",
+                    "yaml",
+                    "markdown",
+                    "latex",
+                    "bash",
+                    "powershell",
+                    "batch",
+                    "lua",
+                    "perl",
+                    "ruby",
+                    "makefile",
+                    "cmake",
+                    "sql",
+                    "verilog"
+                ],
+                "plugins": [
+                    "line-numbers",
+                    "show-language",
+                    "normalize-whitespace",
+                    "toolbar"
+                ]
+            }
+        ],
+        [
+            "module-resolver",
+            {
+                "root": [
+                    "."
+                ],
+                "alias": {
+                    "~": "./src/js"
+                }
+            }
+        ]
+    ]
+}

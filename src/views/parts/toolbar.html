@@ -1,0 +1,124 @@
+<div class="tools-wrapper animate__animated animate__flipInX">
+    <div class="tools">
+        <div class="tool">
+            <div class="prompt"><span>Language</span></div>
+            <div class="select-wrapper">
+                <div class="select" id="lang" title="Select language" style="width: 150px;">
+                    <select id="lang-selector">
+                        <optgroup label="Development">
+                            <option value="c">C</option>
+                            <option value="cpp">C++</option>
+                            <option value="csharp">C#</option>
+                            <option value="go">Go</option>
+                            <option value="java">Java</option>
+                            <option value="python">Python</option>
+                            <option value="rust">Rust</option>
+                            <option value="swift">Swift</option>
+                        </optgroup>
+                        <optgroup label="Web">
+                            <option value="html">HTML</option>
+                            <option value="css">CSS</option>
+                            <option value="javascript">JavaScript</option>
+                            <option value="php">PHP</option>
+                        </optgroup>
+                        <optgroup label="Markup Language">
+                            <option value="xml">XML</option>
+                            <option value="json">JSON</option>
+                            <option value="yaml">YAML</option>
+                            <option value="markdown">Markdown</option>
+                            <option value="latex">LaTeX</option>
+                        </optgroup>
+                        <optgroup label="Scripting Language">
+                            <option value="bash">Bash</option>
+                            <option value="powershell">PowerShell</option>
+                            <option value="batch">Batch</option>
+                            <option value="lua">Lua</option>
+                            <option value="perl">Perl</option>
+                            <option value="ruby">Ruby</option>
+                        </optgroup>
+                        <optgroup label="Build">
+                            <option value="makefile">Makefile</option>
+                            <option value="cmake">CMake</option>
+                        </optgroup>
+                        <optgroup label="Others">
+                            <option value="sql">SQL</option>
+                            <option value="verilog">Verilog</option>
+                        </optgroup>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="tool">
+            <div class="prompt"><span>Color Scheme</span></div>
+            <div class="select-wrapper">
+                <div class="select" title="Select Color Scheme">
+                    <select id="theme-selector">
+                        <option value="prism" selected="selected">Default</option>
+                        <option value="a11y-dark">a11y Dark</option>
+                        <option value="base16-ateliersulphurpool.light">Ateliersulphurpool-light</option>
+                        <option value="atom-dark">Atom Dark</option>
+                        <option value="cb">CB</option>
+                        <option value="coldark-cold">Coldark Cold</option>
+                        <option value="coldark-dark">Coldark Dark</option>
+                        <option value="prism-dark">Dark</option>
+                        <option value="coy-without-shadows">Coy</option>
+                        <option value="darcula">Darcula</option>
+                        <option value="dracula">Dracula</option>
+                        <option value="duotone-dark">Duotone Dark</option>
+                        <option value="duotone-earth">Duotone Earth</option>
+                        <option value="duotone-forest">Duotone Forest</option>
+                        <option value="duotone-light">Duotone Light</option>
+                        <option value="duotone-sea">Duotone Sea</option>
+                        <option value="duotone-space">Duotone Space</option>
+                        <option value="prism-funky">Funky</option>
+                        <option value="ghcolors">GHColors</option>
+                        <option value="gruvbox-dark">Gruvbox Dark</option>
+                        <option value="gruvbox-light">Gruvbox Light</option>
+                        <option value="holi-theme">Holi Theme</option>
+                        <option value="hopscotch">Hopscotch</option>
+                        <option value="lucario">Lucario</option>
+                        <option value="material-dark">Material Dark</option>
+                        <option value="material-light">Material Light</option>
+                        <option value="material-oceanic">Material Oceanic</option>
+                        <option value="night-owl">Night Owl</option>
+                        <option value="nord">Nord</option>
+                        <option value="prism-okaidia">Okaidia</option>
+                        <option value="one-dark">One Dark</option>
+                        <option value="one-light">One Light</option>
+                        <option value="pojoaque">Pojoaque</option>
+                        <option value="shades-of-purple">Shades of Purple</option>
+                        <option value="solarized-dark-atom">Solarized Dark Atom</option>
+                        <option value="prism-solarizedlight">Solarized Light</option>
+                        <option value="synthwave84">Synthwave '84</option>
+                        <option value="prism-tomorrow">Tomorrow Night</option>
+                        <option value="prism-twilight">Twilight</option>
+                        <option value="vs">VS</option>
+                        <option value="vsc-dark-plus">VS Code Dark+</option>
+                        <option value="xonokai">Xonokai</option>
+                        <option value="z-touch">Z-Touch</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="tool">
+            <div class="prompt"><span>Line Number</span></div>
+            <div class="checkbox-wrapper-8" title="Toggle line number">
+                <input class="tgl tgl-skewed" id="cb3-8" type="checkbox" />
+                <label class="tgl-btn" data-tg-off="OFF" data-tg-on="ON" for="cb3-8"></label>
+            </div>
+        </div>
+    </div>
+    <div class="flip-wrapper">
+        <div class="flip-inner" id="help">
+            <div class="flip-front" title="Show help"><i class="fa-solid fa-question"></i></div>
+            <div class="flip-back" title="Hide help"><i class="fa-solid fa-xmark"></i></div>
+        </div>
+    </div>
+    <div class="flip-wrapper">
+        <div class="flip-inner" id="mode">
+            <div class="flip-front" title="Toggle dark mode"><i class="fa-solid fa-jedi"></i></div>
+            <div class="flip-back" title="Toggle light mode" style=" background-color:rgb(165, 5, 5)"><i
+                    class="fa-brands fa-sith"></i></div>
+        </div>
+    </div>
+</div>
