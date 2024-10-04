@@ -40,6 +40,10 @@ function registerActions() {
         makeRandomPaste(null);
     });
 
+    $("#logo").on("click", () => {
+        promptNotification();
+    });
+
     registerSupport();
 }
 
@@ -93,4 +97,12 @@ function makeRandomPaste(lang) {
     toggleHelp();
 }
 
-export { registerActions, makeRandomPaste };
+function promptNotification() {
+    const agreement = $("#notification");
+    if (agreement.children().length === 1) {
+        const html = agreement.html();
+        alertify.alert("Notification 🔔", html);
+    }
+}
+
+export { registerActions, makeRandomPaste, promptNotification };

@@ -75,6 +75,10 @@ body {
     margin: 0 5px;
 }
 
+#logo {
+    cursor: pointer;
+}
+
 /* marquee */
 .banner {
     margin: 5px 0;

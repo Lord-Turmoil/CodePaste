@@ -1,7 +1,5 @@
-import $ from "~/vendor/jquery-extensions";
-import { makeRandomPaste } from "~/events/actions";
+import { makeRandomPaste, promptNotification } from "~/events/actions";
 import { setMode, updateLineNumber } from "~/events/options";
-import alertify from "~/vendor/alertify-extension";
 import { getCookie, setCookie } from "./vendor/cookie-extension";
 import { setTheme } from "~/vendor/prism-extension";
 
@@ -10,7 +8,7 @@ function restoreUserPreferences() {
     restoreLanguage();
     restoreLineNumber();
     restoreTheme();
-    promptAgreement();
+    restoreNotification();
 }
 
 function restoreLanguage() {
@@ -48,18 +46,14 @@ function restoreTheme() {
     }
 }
 
-function promptAgreement() {
-    const agreement = $("#agreement");
-    const cookie = getCookie("agreement");
+function restoreNotification() {
+    const cookie = getCookie("notification");
     if (cookie !== "") {
         return;
     }
-    setCookie("agreement", "agreed", 24 * 7);   // one week
-
-    if (agreement.children().length === 1) {
-        const html = agreement.html();
-        alertify.alert("Notification 🔔", html);
-    }
+    setCookie("notification", "notified", 24 * 7);   // one week
+    
+    promptNotification();
 }
 
 export { restoreUserPreferences };
