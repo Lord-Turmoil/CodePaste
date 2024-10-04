@@ -19,13 +19,13 @@ concurrency:
 jobs:
   # Build job to minify the project
   build:
-    runs-on: linux-latest
+    runs-on: windows-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
       
       - name: Install NodeJS
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v4
         with:
           node-version: "20.x"
       
@@ -34,13 +34,15 @@ jobs:
           npm install
 
       - name: Add Secret Files
+        env:
+          NOTIFICATION: ${{ secrets.NOTIFICATION }}
+          STATISTICS: ${{ secrets.STATISTICS }}
+          SUPPORT: ${{ secrets.SUPPORT }}
         run: |
-          echo ${{ secrets.NOTIFICATION }} > src/views/components/notification.html
-          echo ${{ secrets.STATISTICS }} > src/views/components/statistics.html
-          echo ${{ secrets.SUPPORT }} > src/views/components/support.html
+          python pre_deploy.py
 
       - name: Install Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v5
         with:
           python-version: "3.x"
           
@@ -58,7 +60,7 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: linux-latest
+    runs-on: windows-latest
     needs: build
     steps:
       - name: Deploy to GitHub Pages
