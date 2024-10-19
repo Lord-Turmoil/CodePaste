@@ -30,7 +30,10 @@
                     "makefile",
                     "cmake",
                     "sql",
-                    "verilog"
+                    "verilog",
+                    "nasm",
+                    "llvm",
+                    "diff"
                 ],
                 "plugins": [
                     "line-numbers",

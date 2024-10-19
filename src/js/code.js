@@ -280,6 +280,46 @@ end
 
 endmodule`;
 
+const CODE_NASM = `section .data
+    msg db 'Ready, assemble!', 0xA
+    len equ $ - msg
+
+section .text
+    global _start
+
+_start:
+    mov eax, 4          ; syscall number for sys_write
+    mov ebx, 1          ; file descriptor 1 (stdout)
+    mov ecx, msg        ; pointer to the message
+    mov edx, len        ; length of the message
+    int 0x80            ; make the syscall
+
+    mov eax, 1          ; syscall number for sys_exit
+    xor ebx, ebx        ; exit status 0
+    int 0x80            ; make the syscall
+`;
+
+const CODE_LLVM = `; Function Attrs: noinline nounwind optnone uwtable 
+define dso_local i32 @add(i32 %0, i32 %1) #0 {
+    %3 = alloca i32, align 4
+    %4 = alloca i32, align 4
+    store i32 %0, i32* %3, align 4
+    store i32 %1, i32* %4, align 4
+    %5 = load i32, i32* %3, align 4
+    %6 = load i32, i32* %4, align 4
+    %7 = add i32 %5, %6
+    ret i32 %7
+}
+`;
+
+const CODE_GIT_DIFF = `
+- Jedi Order
++ Sith Empire
+- Kamino
+- Alderaan
++ Mandalore
+`;
+
 const CODE_SET = {
     c: CODE_C,
     cpp: CODE_CPP,
@@ -307,7 +347,10 @@ const CODE_SET = {
     makefile: CODE_MAKEFILE,
     cmake: CODE_CMAKE,
     sql: CODE_SQL,
-    verilog: CODE_VERILOG
+    verilog: CODE_VERILOG,
+    nasm: CODE_NASM,
+    llvm: CODE_LLVM,
+    diff: CODE_GIT_DIFF,
 };
 
 class CodeSet {
