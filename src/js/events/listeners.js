@@ -51,6 +51,12 @@ function registerEditListeners() {
             $(this).trigger(e.shiftKey ? "unindent" : "indent", [prepareIndentation(this)]);
         }
     }).on("indent", function (event, data) {
+        if (data.start == data.end) {
+            document.execCommand("insertText", false, "    ");
+            this.setSelectionRange(data.start + 4, data.start + 4);
+            return;
+        }
+
         for (let i = 0; i < data.affectedLines.length; i++) {
             const line = data.affectedLines[i];
             this.setSelectionRange(line.start, line.start);
