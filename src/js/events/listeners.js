@@ -24,23 +24,64 @@ function registerOnTextAreaChange() {
     });
 }
 
+function prepareIndentation(textarea) {
+    const start = textarea.selectionStart;
+    const end = textarea.selectionEnd;
+    const lines = textarea.value.split("\n");
+
+    let affectedLines = [];
+    let count = 0;
+
+    for (let i = 0; i < lines.length; i++) {
+        const lstart = count;
+        const lend = count + lines[i].length + 1;
+        if (lstart <= end && lend > start) {
+            affectedLines.unshift({ line: i, start: lstart, end: lend });
+        }
+        count = lend;
+    }
+
+    return { start: start, end: end, affectedLines: affectedLines };
+}
+
 function registerEditListeners() {
-    // TODO: Using shift-tab to unindent
-    // FIXME: This will empty the edit history
     $("textarea").on("keydown", function (e) {
         if (e.key == "Tab") {
             e.preventDefault();
-
-            var start = this.selectionStart;
-            var end = this.selectionEnd;
-
-            // set textarea value to: text before caret + tab + text after caret
-            this.value = this.value.substring(0, start) +
-                "    " + this.value.substring(end);
-
-            // put caret at right position again
-            this.selectionStart = this.selectionEnd = start + 4;
+            $(this).trigger(e.shiftKey ? "unindent" : "indent", [prepareIndentation(this)]);
         }
+    }).on("indent", function (event, data) {
+        for (let i = 0; i < data.affectedLines.length; i++) {
+            const line = data.affectedLines[i];
+            this.setSelectionRange(line.start, line.start);
+            document.execCommand("insertText", false, "    ");
+        }
+        this.setSelectionRange(data.start + 4, data.end + 4 * data.affectedLines.length);
+    }).on("unindent", function (event, data) {
+        let newStart = data.start;
+        let newEnd = data.end;
+
+        for (let i = 0; i < data.affectedLines.length; i++) {
+            const line = data.affectedLines[i];
+            const start = line.start;
+            let end = start;
+            while (((end < line.end) && (end - start < 4)) && (this.value[end] == " ")) {
+                end++;
+            }
+
+            if (i == data.affectedLines.length - 1) {
+                newStart -= end - start;
+                newStart = Math.max(newStart, line.start);
+            }
+            newEnd -= end - start;
+            console.log(newStart, newEnd, line.start, end - start);
+
+            if (end > start) {
+                this.setSelectionRange(start, end);
+                document.execCommand("delete");
+            }
+        }
+        this.setSelectionRange(newStart, Math.max(newStart, newEnd));
     });
 }
 
