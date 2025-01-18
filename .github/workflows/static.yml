@@ -39,7 +39,7 @@ jobs:
           STATISTICS: ${{ secrets.STATISTICS }}
           SUPPORT: ${{ secrets.SUPPORT }}
         run: |
-          python pre_deploy.py
+          python scripts/pre_deploy.py
 
       - name: Install Python
         uses: actions/setup-python@v5
