@@ -43,6 +43,9 @@ function expand() {
     previous.height(previous[0].scrollHeight);
     expandMore.addClass("hidden");
     expandLess.removeClass("hidden");
+    setTimeout(() => {
+        $("#more-anchor").get(0).scrollIntoView({ behavior: "smooth" });
+    }, 150);
 }
 
 function collapse() {
@@ -50,6 +53,9 @@ function collapse() {
     previous.height(0);
     expandMore.removeClass("hidden");
     expandLess.addClass("hidden");
+    setTimeout(() => {
+        $("#less-anchor").get(0).scrollIntoView({ behavior: "smooth" });
+    }, 150);
 }
 
 function loadVersion() {

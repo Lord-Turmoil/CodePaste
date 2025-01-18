@@ -54,7 +54,7 @@ body {
     min-width: 600px;
     min-height: 100%;
     overflow-x: hidden;
-    background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    background-color: rgb(228, 233, 240);
 }
 
 /* header */
@@ -296,7 +296,7 @@ body {
     width: 100%;
     resize: none;
     border: none;
-    padding: 5px;
+    padding: 8px 10px;
     font-size: var(--code-font-size);
     border-radius: var(--panel-border-radius);
     z-index: 5;
@@ -464,7 +464,7 @@ pre {
     max-height: var(--panel-max-height);
     overflow-x: hidden;
     overflow-y: auto;
-    padding: 5px !important;
+    padding: 8px 10px !important;
     min-height: 400px !important;
 }
 
@@ -477,7 +477,8 @@ pre code {
     box-sizing: border-box !important;
     border-radius: var(--panel-border-radius);
     font-size: var(--code-font-size) !important;
-    width: 100% !important;
+    width: max-content;
+    min-width: 100% !important;
 }
 
 pre code .token {
@@ -519,7 +520,6 @@ pre code table tr .line {
     background-color: #bbb;
     border-radius: 1000px;
     cursor: pointer;
-    transition: 0.5s;
 }
 
 .expand.hidden {
@@ -540,11 +540,8 @@ pre code table tr .line {
     background-color: #999;
 }
 
-#previous {
-    transition: height 1s;
-}
-
 #previous.hidden {
     height: 0;
     overflow: hidden;
+    transition: height 0.5s;
 }
