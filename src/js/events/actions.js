@@ -4,6 +4,8 @@ import { toggleHelp, closeHelp } from "~/events/help";
 import paste from "~/paste";
 import codeset from "~/code";
 
+var issueLock = false;
+
 function registerActions() {
     $("div.action").each(function () {
         $(this).on("animationend", () => {
@@ -38,6 +40,28 @@ function registerActions() {
     randomButton.on("click", () => {
         randomButton.addClass("animate__animated animate__rubber");
         makeRandomPaste(null);
+    });
+
+    var issueButton = $("#issue");
+    issueButton.on("click", () => {
+        issueButton.addClass("animate__animated animate__tada");
+
+        if (issueLock) {
+            alertify.error("Issue page is already opening... ⌛");
+            return;
+        }
+        issueLock = true;
+
+        var duration = 3;
+        var notification = alertify.success(`Opening issue page in ${duration}... 📝`, duration, function () { clearInterval(interval); });
+        var interval = setInterval(function () {
+            notification.setContent(`Opening issue page in ${--duration}... 📝`);
+        }, 1000);
+
+        setTimeout(() => {
+            window.open("https://github.com/Lord-Turmoil/CodePaste/issues/new", "_blank");
+            issueLock = false;
+        }, duration * 1000);
     });
 
     $("#logo").on("click", () => {
