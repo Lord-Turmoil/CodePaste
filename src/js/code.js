@@ -65,6 +65,28 @@ let doubledNumbers = numbers.map { $0 * 2 }
 
 print(doubledNumbers)`;
 
+const CODE_PERL = `sub printNumbers {
+    my $n = shift;
+    for (my $i = 1; $i <= $n; $i++) {
+        print "$i\\n";
+    }
+}
+
+printNumbers(10);`;
+
+const CODE_RUBY = `name = "John"
+age = 30
+
+if age < 18
+    puts "#{name} is a minor."
+else
+    puts "#{name} is an adult."
+end
+
+5.times do |i|
+    puts "This is message number #{i + 1}."
+end`;
+
 const CODE_HTML = `<!DOCTYPE html>
 <html>
     <head>
@@ -95,6 +117,14 @@ const CODE_JS = `function fibonacci(n) {
     }
 }`;
 
+const CODE_TS = `function fibonacci(n: number): void {
+    let a: number = 0, b: number = 1;
+    while (a < n) {
+        console.log(a);
+        [a, b] = [b, a + b];
+    }
+}`;
+
 const CODE_PHP = `<?php
 $languages = array("JavaScript", "Python", "PHP", "Ruby", "Java");
 
@@ -102,6 +132,43 @@ foreach ($languages as $language) {
     echo "I like $language.\\n";
 }
 ?>`;
+
+
+const CODE_BASH = `#!/bin/bash
+
+name="John"
+age=30
+
+if [ $age -lt 18 ]; then
+    echo "$name is a minor."
+else
+    echo "$name is an adult."
+fi`;
+
+const CODE_POWERSHELL = `$name = "John"
+
+for ($i = 1; $i -le 5; $i++) {
+    Write-Host "Hello, $name! This is message number $i."
+}`;
+
+const CODE_BATCH = `@echo off
+
+set name=John
+set age=30
+
+if %age% lss 18 (
+    echo %name% is a minor.
+) else (
+    echo %name% is an adult.
+)`;
+
+const CODE_LUA = `function printNumbers(n)
+for i = 1, n do
+    print(i)
+end
+end
+
+printNumbers(10)`;
 
 const CODE_XML = `<?xml version="1.0" encoding="UTF-8"?>
 <bookstore>
@@ -160,64 +227,6 @@ length $c$, the following equation holds:
 
 $$a^2 + b^2 = c^2$$`;
 
-const CODE_BASH = `#!/bin/bash
-
-name="John"
-age=30
-
-if [ $age -lt 18 ]; then
-    echo "$name is a minor."
-else
-    echo "$name is an adult."
-fi`;
-
-const CODE_POWERSHELL = `$name = "John"
-
-for ($i = 1; $i -le 5; $i++) {
-    Write-Host "Hello, $name! This is message number $i."
-}`;
-
-const CODE_BATCH = `@echo off
-
-set name=John
-set age=30
-
-if %age% lss 18 (
-    echo %name% is a minor.
-) else (
-    echo %name% is an adult.
-)`;
-
-const CODE_LUA = `function printNumbers(n)
-for i = 1, n do
-    print(i)
-end
-end
-
-printNumbers(10)`;
-
-const CODE_PERL = `sub printNumbers {
-    my $n = shift;
-    for (my $i = 1; $i <= $n; $i++) {
-        print "$i\\n";
-    }
-}
-
-printNumbers(10);`;
-
-const CODE_RUBY = `name = "John"
-age = 30
-
-if age < 18
-    puts "#{name} is a minor."
-else
-    puts "#{name} is an adult."
-end
-
-5.times do |i|
-    puts "This is message number #{i + 1}."
-end`;
-
 const CODE_MAKEFILE = `CC = gcc
 CFLAGS = -Wall -Wextra -pedantic
 
@@ -251,6 +260,19 @@ add_subdirectory(mioc)
 target_link_libraries(\${CMAKE_PROJECT_NAME} PRIVATE mioc)
 `;
 
+const CODE_DOCKER = `# PatBoot Dockerfile
+
+FROM openjdk:17-jdk-slim
+
+ARG VERSION
+
+COPY target/PatBoot-\${VERSION}.jar /application.jar
+
+EXPOSE 8080
+
+CMD ["java", "-jar", "/application.jar"]
+`;
+
 const CODE_SQL = `CREATE TABLE users (
     id INT PRIMARY KEY,
     name VARCHAR(50),
@@ -263,22 +285,6 @@ VALUES (1, 'John Doe', 'johndoe@example.com'),
        (3, 'Bob Johnson', 'bobjohnson@example.com');
 
 SELECT * FROM users;`;
-
-const CODE_VERILOG = `module counter(
-    input clk,
-    input rst,
-    output reg [7:0] count
-);
-
-always @(posedge clk, posedge rst) begin
-    if (rst) begin
-        count <= 0;
-    end else begin
-        count <= count + 1;
-    end
-end
-
-endmodule`;
 
 const CODE_NASM = `section .data
     msg db 'Ready, assemble!', 0xA
@@ -312,12 +318,64 @@ define dso_local i32 @add(i32 %0, i32 %1) #0 {
 }
 `;
 
+const CODE_VERILOG = `module counter(
+    input clk,
+    input rst,
+    output reg [7:0] count
+);
+
+always @(posedge clk, posedge rst) begin
+    if (rst) begin
+        count <= 0;
+    end else begin
+        count <= count + 1;
+    end
+end
+
+endmodule`;
+
 const CODE_GIT_DIFF = `
 - Jedi Order
 + Sith Empire
 - Kamino
 - Alderaan
 + Mandalore
+`;
+
+const CODE_MATLAB = `% Define the range of x values
+x = linspace(0, 2*pi, 100);
+
+% Calculate the sine of each x value
+y = sin(x);
+
+% Create a plot of the sine wave
+figure;
+plot(x, y);
+
+% Add title and labels
+title('Sine Wave');
+xlabel('x');
+ylabel('sin(x)');
+
+% Display grid
+grid on;
+`;
+
+const CODE_GLSL = `#version 450 core
+
+layout(location = 0) out vec4 o_Color;
+
+struct VertexOutput
+{
+    vec4 Color;
+};
+
+layout (location = 0) in VertexOutput Input;
+
+void main()
+{
+    o_Color = Input.Color;
+}
 `;
 
 const CODE_SET = {
@@ -329,28 +387,32 @@ const CODE_SET = {
     python: CODE_PYTHON,
     rust: CODE_RUST,
     swift: CODE_SWIFT,
+    perl: CODE_PERL,
+    ruby: CODE_RUBY,
+    bash: CODE_BASH,
+    powershell: CODE_POWERSHELL,
+    batch: CODE_BATCH,
+    lua: CODE_LUA,
     html: CODE_HTML,
     css: CODE_CSS,
     javascript: CODE_JS,
+    typescript: CODE_TS,
     php: CODE_PHP,
     xml: CODE_XML,
     json: CODE_JSON,
     yaml: CODE_YAML,
     markdown: CODE_MARKDOWN,
     latex: CODE_LATEX,
-    bash: CODE_BASH,
-    powershell: CODE_POWERSHELL,
-    batch: CODE_BATCH,
-    lua: CODE_LUA,
-    perl: CODE_PERL,
-    ruby: CODE_RUBY,
     makefile: CODE_MAKEFILE,
     cmake: CODE_CMAKE,
+    docker: CODE_DOCKER,
     sql: CODE_SQL,
-    verilog: CODE_VERILOG,
     nasm: CODE_NASM,
     llvm: CODE_LLVM,
+    verilog: CODE_VERILOG,
     diff: CODE_GIT_DIFF,
+    matlab: CODE_MATLAB,
+    glsl: CODE_GLSL,
 };
 
 class CodeSet {
