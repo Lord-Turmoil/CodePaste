@@ -1,6 +1,6 @@
 # Code Paste
 
-Copyright &copy; Tony's Studio 2023 - 2024
+Copyright &copy; Tony's Studio 2023 - 2025
 
 ---
 
@@ -131,4 +131,4 @@ Here, I would like to express my sincere gratitude for all who sponsor Code Past
             </td>
         </tr>
     </tbody>
-
+</table>

@@ -1,36 +1,91 @@
 [
     {
-        "version": "1.1.x",
-        "date": "2023.6.26",
+        "version": "3.1.1",
+        "date": "2025.1.18",
         "entries": [
             {
-                "title": "General",
+                "title": "Changes",
                 "items": [
-                    "First stable version",
-                    "Primary features realized"
+                    "Add support for more languages",
+                    "Use Tab or Shift + Tab to indent or unindent",
+                    "Minor adjustments to the layout"
                 ]
             },
             {
                 "title": "Fixes",
                 "items": [
-                    "Fix potential format error",
-                    "Fix compatibility with Microsoft PowerPoint"
+                    "Tab key will no longer clear input history"
                 ]
             }
         ]
     },
     {
-        "version": "1.2.x",
-        "date": "2023.10.4",
+        "version": "3.1.0",
+        "date": "2024.10.3",
+        "entries": [
+            {
+                "title": "Refactor",
+                "items": [
+                    "Refactored project with npm package"
+                ]
+            },
+            {
+                "title": "Changes",
+                "items": [
+                    "Minor updates to the style"
+                ]
+            },
+            {
+                "title": "Fixes",
+                "items": [
+                    "Fixed the bug that input box cannot auto-shrink"
+                ]
+            }
+        ]
+    },
+    {
+        "version": "3.0.1",
+        "date": "2024.7.25",
         "entries": [
             {
                 "title": "Changes",
                 "items": [
-                    "Support for one-click copy",
-                    "Add beautiful alertify dialogs",
-                    "Adapt to new Edge UI",
-                    "Fix typo",
-                    "Reorder action buttons"
+                    "Introduced native dark mode",
+                    "Improved animation effects",
+                    "Disabled spell check and completion for input box",
+                    "Copy code with line numbers (Experimental)"
+                ]
+            },
+            {
+                "title": "Fixes",
+                "items": [
+                    "Removed the annoying text shadow"
+                ]
+            },
+            {
+                "title": "Notice",
+                "items": [
+                    "You may need to manually adjust font and column width after pasting"
+                ]
+            }
+        ]
+    },
+    {
+        "version": "2.2.3",
+        "date": "2023.12.31",
+        "entries": [
+            {
+                "title": "Changes",
+                "items": [
+                    "Can use Tab key to indent 4 spaces",
+                    "Can remember history language and theme",
+                    "Add prompt for the use of Microsoft Clarity"
+                ]
+            },
+            {
+                "title": "Fixes",
+                "items": [
+                    "Bad URL links"
                 ]
             }
         ]
@@ -64,72 +119,37 @@
         ]
     },
     {
-        "version": "2.2.3",
-        "date": "2023.12.31",
+        "version": "1.2.x",
+        "date": "2023.10.4",
         "entries": [
             {
                 "title": "Changes",
                 "items": [
-                    "Can use Tab key to indent 4 spaces",
-                    "Can remember history language and theme",
-                    "Add prompt for the use of Microsoft Clarity"
-                ]
-            },
-            {
-                "title": "Fixes",
-                "items": [
-                    "Bad URL links"
+                    "Support for one-click copy",
+                    "Add beautiful alertify dialogs",
+                    "Adapt to new Edge UI",
+                    "Fix typo",
+                    "Reorder action buttons"
                 ]
             }
         ]
     },
     {
-        "version": "3.0.1",
-        "date": "2024.7.25",
+        "version": "1.1.x",
+        "date": "2023.6.26",
         "entries": [
             {
-                "title": "Changes",
+                "title": "General",
                 "items": [
-                    "Introduced native dark mode",
-                    "Improved animation effects",
-                    "Disabled spell check and completion for input box",
-                    "Copy code with line numbers (Experimental)"
+                    "First stable version",
+                    "Primary features realized"
                 ]
             },
             {
                 "title": "Fixes",
                 "items": [
-                    "Removed the annoying text shadow"
-                ]
-            },
-            {
-                "title": "Notice",
-                "items": [
-                    "You may need to manually adjust font and column width after pasting"
-                ]
-            }
-        ]
-    },
-    {
-        "version": "3.1.0",
-        "date": "2024.10.3",
-        "entries": [
-            {
-                "title": "Refactor",
-                "items": [
-                    "Refactored project with npm package"
-                ]
-            },
-            {
-                "title": "Changes",
-                "items": [
-                    "Minor updates to the style"
-                ]
-            },
-            {
-                "title": "Fixes",
-                "items": [
-                    "Fixed the bug that input box cannot auto-shrink"
+                    "Fix potential format error",
+                    "Fix compatibility with Microsoft PowerPoint"
                 ]
             }
         ]

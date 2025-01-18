@@ -1,7 +1,7 @@
 {
   "name": "code-paste",
-  "version": "3.1.0",
-  "description": "",
+  "version": "3.1.1",
+  "description": "Online code highlighter for Microsoft Word and PowerPoint",
   "main": "index.js",
   "scripts": {
     "build:html": "posthtml -c posthtml.json",
@@ -23,12 +23,17 @@
     "watch:version": "onchange \"src/version.json\" -- npm run build-dev:version",
     "dev": "npm-run-all build-dev && run-p watch:*",
     "init": "shx touch src/views/components/notification.html src/views/components/support.html src/views/components/statistics.html",
-    "eslint-init": ".\\node_modules\\.bin\\eslint --init",
-    "eslint-fix": ".\\node_modules\\.bin\\eslint src\\** --fix"
+    "lint": ".\\node_modules\\.bin\\eslint src\\** --fix"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "highlighter",
+    "code",
+    "office",
+    "word",
+    "powerpoint"
+  ],
+  "author": "Tony Skywalker",
+  "license": "MIT",
   "devDependencies": {
     "@babel/preset-env": "^7.25.4",
     "@eslint/js": "^9.11.1",

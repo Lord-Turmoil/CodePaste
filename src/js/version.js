@@ -5,7 +5,6 @@ function render(versions) {
     var options = { year: "numeric", month: "long", day: "numeric" };
     var latest = "";
     var previous = "";
-    versions = versions.reverse();
     versions.forEach((version, index) => {
         var html = "";
         html += '<div class="doc-badge-base">';
