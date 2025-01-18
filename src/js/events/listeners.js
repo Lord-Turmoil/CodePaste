@@ -82,6 +82,14 @@ function registerEditListeners() {
             }
         }
         this.setSelectionRange(newStart, Math.max(newStart, newEnd));
+    }).on("paste", function (e) {
+        e.preventDefault();
+        // This is a bug when copying from PowerPoint, where '\n' is
+        // replaced with '\v' (vertical tab) and ' ' is replaced with '\xa0' (non-breaking space)
+        const text = e.originalEvent.clipboardData.getData("text")
+            .replaceAll(String.fromCharCode(11), "\n")
+            .replaceAll(String.fromCharCode(160), " ");
+        document.execCommand("insertText", false, text);
     });
 }
 

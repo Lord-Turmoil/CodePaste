@@ -14,7 +14,8 @@
             {
                 "title": "Fixes",
                 "items": [
-                    "Tab key will no longer clear input history"
+                    "Tab key will no longer clear input history",
+                    "Compatibility issue with Microsoft PowerPoint"
                 ]
             }
         ]
