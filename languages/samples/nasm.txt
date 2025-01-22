@@ -1,0 +1,17 @@
+section .data
+    msg db 'Ready, assemble!', 0xA
+    len equ $ - msg
+
+section .text
+    global _start
+
+_start:
+    mov eax, 4          ; syscall number for sys_write
+    mov ebx, 1          ; file descriptor 1 (stdout)
+    mov ecx, msg        ; pointer to the message
+    mov edx, len        ; length of the message
+    int 0x80            ; make the syscall
+
+    mov eax, 1          ; syscall number for sys_exit
+    xor ebx, ebx        ; exit status 0
+    int 0x80            ; make the syscall

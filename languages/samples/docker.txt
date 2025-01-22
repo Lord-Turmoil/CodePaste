@@ -1,0 +1,11 @@
+# PatBoot Dockerfile
+
+FROM openjdk:17-jdk-slim
+
+ARG VERSION
+
+COPY target/PatBoot-${VERSION}.jar /application.jar
+
+EXPOSE 8080
+
+CMD ["java", "-jar", "/application.jar"]

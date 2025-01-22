@@ -1,0 +1,10 @@
+@echo off
+
+set name=John
+set age=30
+
+if %age% lss 18 (
+    echo %name% is a minor.
+) else (
+    echo %name% is an adult.
+)

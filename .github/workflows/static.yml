@@ -33,6 +33,11 @@ jobs:
         run: |
           npm install
 
+      - name: Install Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
       - name: Add Secret Files
         env:
           NOTIFICATION: ${{ secrets.NOTIFICATION }}
@@ -40,11 +45,6 @@ jobs:
           SUPPORT: ${{ secrets.SUPPORT }}
         run: |
           python scripts/pre_deploy.py
-
-      - name: Install Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.x"
           
       - name: Build Project
         run: |

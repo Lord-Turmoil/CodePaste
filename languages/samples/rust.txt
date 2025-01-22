@@ -1,0 +1,14 @@
+fn main() {
+    let name = "Rust";
+    let version = 1.56;
+
+    println!("Hello, {}!", name);
+    println!("Current version: {}", version);
+
+    let sum = add(5, 10);
+    println!("Sum of 5 and 10 is: {}", sum);
+}
+
+fn add(a: i32, b: i32) -> i32 {
+    a + b
+}

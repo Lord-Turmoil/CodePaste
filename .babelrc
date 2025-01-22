@@ -4,40 +4,48 @@
             "prismjs",
             {
                 "languages": [
+                    // Programming Languages
                     "c",
                     "cpp",
                     "csharp",
                     "go",
                     "java",
+                    "perl",
                     "python",
+                    "ruby",
                     "rust",
                     "swift",
-                    "perl",
-                    "ruby",
-                    "html",
+                    // Web Development
                     "css",
+                    "html",
                     "javascript",
-                    "typescript",
                     "php",
+                    "typescript",
+                    // Scripting Language
                     "bash",
-                    "powershell",
                     "batch",
                     "lua",
-                    "xml",
+                    "powershell",
+                    // Markup Language
                     "json",
-                    "yaml",
-                    "markdown",
                     "latex",
-                    "makefile",
+                    "markdown",
+                    "xml",
+                    "yaml",
+                    // Configuration Language
                     "cmake",
                     "docker",
+                    "makefile",
+                    // Database
                     "sql",
-                    "nasm",
+                    // Assembly Language
                     "llvm",
-                    "verilog",
+                    "nasm",
+                    // Others
                     "diff",
+                    "glsl",
                     "matlab",
-                    "glsl"
+                    "verilog"
                 ],
                 "plugins": [
                     "line-numbers",
