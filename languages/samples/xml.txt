@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bookstore>
+  <book category="fiction">
+    <title>Star Wars</title>
+    <author>George Lucas</author>
+    <price>10.99</price>
+  </book>
+  <book category="non-fiction">
+    <title>The Silent Spring</title>
+    <author>Rachel Carson</author>
+    <price>7.99</price>
+  </book>
+</bookstore>

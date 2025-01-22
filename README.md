@@ -4,9 +4,11 @@ Copyright &copy; Tony's Studio 2023 - 2025
 
 ---
 
+[![Build](https://github.com/Lord-Turmoil/CodePaste/actions/workflows/static.yml/badge.svg?branch=main)](https://github.com/Lord-Turmoil/CodePaste/actions/workflows/static.yml)
+
 ## Description
 
-This tool provides you the ability to create highlighted code for Microsoft Office, mainly for Word and PowerPoint. You can use it to create a beautiful code block in your document or presentation.
+This tool provides you the ability to create highlighted code block for Microsoft Office, mainly for Word and PowerPoint. You can use it to create a beautiful code block in your document or presentation.
 
 ### Try it now!
 
@@ -17,38 +19,53 @@ This tool provides you the ability to create highlighted code for Microsoft Offi
 
 ## Development
 
-If you find Code Paste useful and want to host it on your website, this section will be useful.
-
-> **NOTICE:** I'm glad some of you have already hosted Code Paste on you own server, but forgot to remove the analytics scripts and my COS links. It's partly due to my bad project structure, so I refactored it to separate these configurations. Besides, **I would appreciate it if you mention my repository in your website**.🙏
-
-Feel free to contribute to this project. You can report bugs, suggest new features, or even submit a pull request. 😊
+If you find Code Paste useful and want to host it on your own, this section will be useful. By the way, feel free to contribute to this project. You can report bugs, suggest new features, or even submit a pull request. 😊
 
 ### Quick Start
 
-Code Paste is written in native HTML, CSS and JavaScript with npm and Webpack. Also with posthtml for the `<module>` tag. To start development, clone the repo first, then install required packages.
+Code Paste is written in native HTML, CSS and JavaScript. To start development, clone the repo first, then install required packages.
 
 ```bash
 npm install
-npm run init  # initialize placeholder
+npm run init    # initialize placeholder files
 ```
 
 Then, you can run the project. There are three options for this.
 
 ```bash
 npm run build  # build for production
-npm run dev    # build for development
-npm run watch  # build for development and watch for changes
+npm run dev    # build for development and watch for changes
 ```
 
 > To preview the project locally, I recommend using [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) plugin for Visual Studio Code. Just open `dist/index.html` after your local server is on.
 
+### Code Samples
+
+Code Paste provides sample code for each supported language. The supported languages are listed in `languages/lang.yml`, grouped by their categories. All the code samples are placed under `languages/samples/` directory. 
+
+> [!NOTE]
+>
+> The display order of the language options in the final webpage is exactly the same as that in `lang.yml`.
+
+Managing language options in HTML and JavaScript is tedious, so there is a script to automatically generate related code. You should run this command after modifying the language list or adding new samples. This will generate `src/js/samples.js` and `src/views/components/languages.html`.
+
+```bash
+npm run sample
+```
+
+To add a new language, first add it to `languages/lang.yml`. In the suitable category, add a new list item in the format of `key value`, where `key` is the language id of [Prism.js](https://prismjs.com/#supported-languages), and the `value` is the display name of the language in the select box. Then, create a new file `{key}.txt` under `languages/samples/` and write your sample code in it. Finally, add this language to `.babelrc` so that it can be correctly loaded.
+
+> [!WARNING]
+>
+> `npm run dev` will not watch for changes under `languages/` directory. So you have to manually update it.
+
 ### Customization
 
-Since I removed sensitive information from the project, you need to run `npm run init` to create placeholder files even if you don't need them. They are under `src/views/components/`, where you can find a `.gitignore` that ignores them.
+Since I removed sensitive information from the project, you need to run `npm run init` to create placeholder files even if you don't need them. These files are placed under `src/views/components/`.
 
 **Analytics**
 
-In file `statistics.html`, and place all your scripts into it. If you don't need them, just leave this file empty. The file should look like this.
+In file `statistics.html`, and place all your scripts into it. If you don't need them, just leave this file empty. Here is an example for this file.
 
 ```html
 <!-- Clarity -->
@@ -59,7 +76,7 @@ In file `statistics.html`, and place all your scripts into it. If you don't need
         y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
     })(window, document, "clarity", "script", "***key***");
 </script>
-<!-- Baidu Statistics -->
+<!-- Baidu Analytics -->
 <script>
     var _hmt = _hmt || [];
     (function () {

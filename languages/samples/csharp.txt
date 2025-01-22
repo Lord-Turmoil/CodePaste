@@ -1,0 +1,12 @@
+public class Startup
+{
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+    {
+        app.UseRouting();
+        app.UseCors(CorsOptions.CorsPolicyName);
+        app.UseEndpoints(endpoints => {
+            endpoints.MapControllers();
+            endpoints.MapSwagger();
+        });
+    }
+}

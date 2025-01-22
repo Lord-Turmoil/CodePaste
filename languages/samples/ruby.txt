@@ -1,0 +1,12 @@
+name = "John"
+age = 30
+
+if age < 18
+    puts "#{name} is a minor."
+else
+    puts "#{name} is an adult."
+end
+
+5.times do |i|
+    puts "This is message number #{i + 1}."
+end

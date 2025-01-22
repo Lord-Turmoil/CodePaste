@@ -1,0 +1,6 @@
+The Pythagorean theorem states that
+for a right triangle with legs of
+length $a$ and $b$ and hypotenuse of
+length $c$, the following equation holds:
+
+$$a^2 + b^2 = c^2$$

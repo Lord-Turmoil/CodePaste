@@ -1,0 +1,10 @@
+.action-wrapper .action {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    border-radius: 50%;
+    align-self: center;
+    cursor: pointer;
+    transition: 0.3s;
+}

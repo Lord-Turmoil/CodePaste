@@ -1,0 +1,7 @@
+function printNumbers(n)
+for i = 1, n do
+    print(i)
+end
+end
+
+printNumbers(10)

@@ -1,0 +1,17 @@
+% Define the range of x values
+x = linspace(0, 2*pi, 100);
+
+% Calculate the sine of each x value
+y = sin(x);
+
+% Create a plot of the sine wave
+figure;
+plot(x, y);
+
+% Add title and labels
+title('Sine Wave');
+xlabel('x');
+ylabel('sin(x)');
+
+% Display grid
+grid on;

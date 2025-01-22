@@ -1,0 +1,10 @@
+#!/bin/bash
+
+name="John"
+age=30
+
+if [ $age -lt 18 ]; then
+    echo "$name is a minor."
+else
+    echo "$name is an adult."
+fi

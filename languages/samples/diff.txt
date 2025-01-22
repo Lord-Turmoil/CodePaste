@@ -1,0 +1,5 @@
+- Jedi Order
++ Sith Empire
+- Kamino
+- Alderaan
++ Mandalore

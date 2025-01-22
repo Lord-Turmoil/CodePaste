@@ -1,0 +1,12 @@
+#include <stdio.h>
+
+int main() {
+    int num = 10;
+    int* ptr = &num;
+
+    printf("The value of num is %d\n", num);
+    printf("The value of ptr is %p\n", ptr);
+    printf("The value that ptr points to is %d\n", *ptr);
+
+    return 0;
+}

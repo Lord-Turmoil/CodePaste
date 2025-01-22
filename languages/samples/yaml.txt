@@ -1,0 +1,16 @@
+- title: The Great Gatsby
+  author: F. Scott Fitzgerald
+  year: 1925
+  publisher: Scribner
+- title: To Kill a Mockingbird
+  author: Harper Lee
+  year: 1960
+  publisher: J. B. Lippincott & Co.
+- title: 1984
+  author: George Orwell
+  year: 1949
+  publisher: Secker & Warburg
+- title: The Catcher in the Rye
+  author: J. D. Salinger
+  year: 1951
+  publisher: Little, Brown and Company

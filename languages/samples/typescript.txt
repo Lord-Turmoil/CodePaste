@@ -1,0 +1,7 @@
+function fibonacci(n: number): void {
+    let a: number = 0, b: number = 1;
+    while (a < n) {
+        console.log(a);
+        [a, b] = [b, a + b];
+    }
+}
