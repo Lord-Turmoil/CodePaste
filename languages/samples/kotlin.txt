@@ -1,0 +1,13 @@
+fun main() {
+    val numbers = listOf(1, 2, 3, 4, 5)
+    val evenNumbers = numbers.map { it * 2 }.filter { it % 2 == 0 }
+    val sumOfEvenNumbers = evenNumbers.sum()
+
+    println("Original numbers: $numbers")
+    println("Even numbers: $evenNumbers")
+    println("Sum of even numbers: $sumOfEvenNumbers")
+}
+
+fun factorial(n: Int): Int {
+    return if (n == 0) 1 else n * factorial(n - 1)
+}
