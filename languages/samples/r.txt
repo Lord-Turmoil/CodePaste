@@ -1,0 +1,12 @@
+# Generate a sequence of numbers from 0 to 2*pi
+x <- seq(0, 2*pi, length.out = 100)
+
+# Compute the sine of each number
+y <- sin(x)
+
+# Plot the sine wave
+plot(x, y, type = "l", col = "blue", lwd = 2, 
+    main = "Sine Wave", xlab = "x", ylab = "sin(x)")
+
+# Add grid lines for better visualization
+grid()
