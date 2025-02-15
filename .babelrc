@@ -32,6 +32,7 @@
                     "json",
                     "latex",
                     "markdown",
+                    "toml",
                     "xml",
                     "yaml",
                     // Configuration Language

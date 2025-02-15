@@ -55,10 +55,6 @@ npm run sample
 
 To add a new language, first add it to `languages/lang.yml`. In the suitable category, add a new list item in the format of `key value`, where `key` is the language id of [Prism.js](https://prismjs.com/#supported-languages), and the `value` is the display name of the language in the select box. Then, create a new file `{key}.txt` under `languages/samples/` and write your sample code in it. Finally, add this language to `.babelrc` so that it can be correctly loaded.
 
-> [!WARNING]
->
-> `npm run dev` will not watch for changes under `languages/` directory. So you have to manually update it.
-
 ### Customization
 
 Since I removed sensitive information from the project, you need to run `npm run init` to create placeholder files even if you don't need them. These files are placed under `src/views/components/`.
