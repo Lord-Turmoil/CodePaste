@@ -26,6 +26,7 @@ Markup Language:
   - json JSON
   - latex LaTeX
   - markdown Markdown
+  - toml TOML
   - xml XML
   - yaml YAML
 Configuration Language:
