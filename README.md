@@ -12,7 +12,7 @@ This tool provides you the ability to create highlighted code block for Microsof
 
 ### Try it now!
 
-- [Code Paste on Tony's Studio](https://paste.tonys-studio.top/)
+- [Code Paste on Tony's Studio](https://codepaste.top/)
 - [Code Paste on GitHub Page](https://lord-turmoil.github.io/CodePaste/)
 
 ---
@@ -122,6 +122,11 @@ Here, I would like to express my sincere gratitude for all who sponsor Code Past
 <table>
     <tbody>
         <tr>
+            <td align="center" valign="top" width="14.28%">
+                <a href="https://github.com/Pan-Pan-Pan"><img src="https://avatars.githubusercontent.com/u/111100556?s=100" width="100px;" alt="Pan-Pan-Pan"/></a>
+                <br />
+                <sub><b>Pan-Pan-Pan</b></sub>
+            </td>
             <td align="center" valign="top" width="14.28%">
                 <a href="https://github.com/AkashiSensei"><img src="https://avatars.githubusercontent.com/u/78262426?s=100" width="100px;" alt="Liu Yizhou"/></a>
                 <br />
