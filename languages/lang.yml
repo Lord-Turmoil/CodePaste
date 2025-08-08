@@ -1,4 +1,4 @@
-Programming Languages:
+Programming Language:
   - c C
   - cpp C++
   - csharp C#
@@ -40,6 +40,7 @@ Assembly Language:
   - llvm LLVM
   - nasm NASM
 Others:
+  - coq Coq
   - diff Diff
   - glsl GLSL
   - matlab MATLAB

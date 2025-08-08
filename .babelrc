@@ -4,7 +4,7 @@
             "prismjs",
             {
                 "languages": [
-                    // Programming Languages
+                    // Programming Language
                     "c",
                     "cpp",
                     "csharp",
@@ -46,6 +46,7 @@
                     "llvm",
                     "nasm",
                     // Others
+                    "coq",
                     "diff",
                     "glsl",
                     "matlab",

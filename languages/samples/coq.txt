@@ -1,0 +1,10 @@
+Section Hilbert_Axiom_S.
+Variable P Q R : Prop.
+Theorem hilbert_axiom_s : (P -> Q -> R) -> (P -> Q) -> P -> R.
+Proof.
+    intros H1 H2 H3.
+    apply H1.
+    exact H3.
+    exact (H2 H3).
+Qed.
+End Hilbert_Axiom_S.
