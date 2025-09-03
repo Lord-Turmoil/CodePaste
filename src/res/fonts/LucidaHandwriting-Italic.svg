@@ -2,8 +2,8 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
 <metadata>
-Created by FontForge 20170731 at Wed Oct 27 14:34:37 1999
- By Aleksey,,,
+Created by FontForge 20201107 at Wed Oct 27 14:34:37 1999
+ By 
 (c) 1991 Bigelow &#38; Holmes Inc. All Rights Reserved. Pat. Pend. (c) 1990-1991 Type Solutions, Inc. All Rights Reserved.
 </metadata>
 <defs>
@@ -21,14 +21,14 @@ Created by FontForge 20170731 at Wed Oct 27 14:34:37 1999
     cap-height="1548"
     bbox="-418 -666 2743 1964"
     underline-thickness="100"
-    underline-position="-350"
+    underline-position="-250"
     slope="-11.25"
     unicode-range="U+0020-F002"
   />
-<missing-glyph horiz-adv-x="748" 
-d="M68 0v1365h544v-1365h-544zM136 68h408v1229h-408v-1229z" />
-    <glyph glyph-name=".notdef" horiz-adv-x="748" 
-d="M68 0v1365h544v-1365h-544zM136 68h408v1229h-408v-1229z" />
+<missing-glyph horiz-adv-x="1024" 
+d="M128 0v1480h768v-1480h-768zM256 128h512v1224h-512v-1224z" />
+    <glyph glyph-name=".notdef" horiz-adv-x="1024" 
+d="M128 0v1480h768v-1480h-768zM256 128h512v1224h-512v-1224z" />
     <glyph glyph-name="glyph1" horiz-adv-x="0" 
  />
     <glyph glyph-name="glyph2" horiz-adv-x="691" 
@@ -746,7 +746,5 @@ q-170 -141 -230 -141q-39 0 -39 49q0 70 22 125z" />
     <glyph glyph-name="uniF002" unicode="&#xf002;" horiz-adv-x="1647" 
 d="M413 796h-20q-149 0 -260 -74q24 128 70.5 162.5t195.5 34.5h38l22 108q41 208 105 327t191 223q212 175 463 175q142 0 242 -43t100 -104q0 -58 -57 -106l-189 -950q-27 -136 -27 -224q0 -171 129 -171q236 0 690 709l84 -46q-219 -386 -445.5 -611t-396.5 -225
 q-262 0 -262 330q0 84 28 224l203 1022q-62 72 -202 72q-339 0 -429 -452l-51 -258h58q216 0 345 44q-36 -110 -92.5 -138.5t-241.5 -28.5h-94l-173 -870q-24 -124 -24 -218q0 -58 25 -106q-101 -34 -154 -34q-82 0 -82 94q0 73 33 239z" />
-    <glyph glyph-name="f000" horiz-adv-x="1024" 
-d="M128 0v1480h768v-1480h-768zM256 128h512v1224h-512v-1224z" />
   </font>
 </defs></svg>

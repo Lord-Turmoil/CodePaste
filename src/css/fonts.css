@@ -4,6 +4,7 @@
     src: url('../res/fonts/LucidaHandwriting-Italic.eot?#iefix') format('embedded-opentype'),
         url('../res/fonts/LucidaHandwriting-Italic.woff2') format('woff2'),
         url('../res/fonts/LucidaHandwriting-Italic.woff') format('woff'),
+        url('../res/fonts/LucidaHandwriting-Italic.ttf') format('truetype'),
         url('../res/fonts/LucidaHandwriting-Italic.svg#LucidaHandwriting-Italic') format('svg');
     font-weight: normal;
     font-style: italic;
@@ -16,6 +17,7 @@
     src: url('../res/fonts/Consolas.eot?#iefix') format('embedded-opentype'),
         url('../res/fonts/Consolas.woff2') format('woff2'),
         url('../res/fonts/Consolas.woff') format('woff'),
+        url('../res/fonts/Consolas.ttf') format('truetype'),
         url('../res/fonts/Consolas.svg#Consolas') format('svg');
     font-weight: normal;
     font-style: normal;
