@@ -264,9 +264,10 @@ function handleIssue(): void {
   }
   
   issueLock.value = true;
-  let duration = 3;
+  const initialDuration = 3;
+  let duration = initialDuration;
   
-  const notification = success(`Opening issue page in ${duration}... 📝`, duration, () => {
+  const notification = success(`Opening issue page in ${duration}... 📝`, initialDuration, () => {
     clearInterval(interval);
   });
   
@@ -277,7 +278,7 @@ function handleIssue(): void {
   setTimeout(() => {
     window.open('https://github.com/Lord-Turmoil/CodePaste/issues/new', '_blank');
     issueLock.value = false;
-  }, duration * 1000);
+  }, initialDuration * 1000);
 }
 
 function handleCoffee(): void {
