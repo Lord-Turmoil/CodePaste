@@ -15,11 +15,11 @@ defineEmits<{
 
 <template>
   <div class="tool">
-    <label for="theme-selector" class="prompt">
+    <div class="prompt">
       <span>Color Scheme</span>
-    </label>
+    </div>
     <div class="select-wrapper">
-      <div class="select" title="Select color scheme">
+      <div class="select" title="Select Color Scheme">
         <select
           id="theme-selector"
           :value="modelValue"
@@ -38,52 +38,3 @@ defineEmits<{
     </div>
   </div>
 </template>
-
-<style scoped>
-.tool {
-  align-self: center;
-  display: flex;
-  flex-direction: row;
-  margin: 5px;
-}
-
-.tool > div,
-.tool > label {
-  margin: 0 5px;
-  align-self: center;
-}
-
-.prompt span {
-  font-weight: 500;
-}
-
-.select-wrapper {
-  position: relative;
-}
-
-.select select {
-  width: 100%;
-  padding: 6px 12px;
-  font-size: 14px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  background-color: white;
-  cursor: pointer;
-}
-
-.select select:focus {
-  outline: 2px solid #4a90d9;
-  outline-offset: 1px;
-}
-
-@media screen and (max-width: 950px) {
-  .tool {
-    align-self: flex-start;
-  }
-
-  .tool .prompt {
-    width: 8em;
-    text-align: right;
-  }
-}
-</style>

@@ -5,6 +5,12 @@
  */
 import { ref, computed, onMounted, watch, nextTick } from 'vue';
 import Prism from 'prismjs';
+
+// Import original CSS files
+import './css/index.css';
+import './css/effect.css';
+import './css/doc.css';
+import './css/fonts.css';
 import 'prismjs/plugins/line-numbers/prism-line-numbers.js';
 import 'prismjs/plugins/toolbar/prism-toolbar.js';
 import 'prismjs/plugins/show-language/prism-show-language.js';
@@ -401,14 +407,12 @@ watch(isDarkMode, (dark) => {
 </script>
 
 <template>
-  <div class="border" :class="{ 'dark-mode': isDarkMode }">
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-    
+  <div class="border">
     <HeaderSection @logo-click="handleLogoClick" />
-    <hr aria-hidden="true" />
+    <hr />
     
     <BannerSection />
-    <hr aria-hidden="true" />
+    <hr />
     
     <ToolbarSection
       :selected-language="selectedLanguage"
@@ -423,29 +427,27 @@ watch(isDarkMode, (dark) => {
       @toggle-help="toggleHelp"
       @toggle-dark-mode="handleDarkModeToggle"
     />
-    <hr aria-hidden="true" />
+    <hr />
     
-    <div id="main-content">
-      <CodePanel
-        v-model:source-code="sourceCode"
-        :highlighted-code="highlightedCode"
-        :language="selectedLanguage"
-        :language-label="selectedLanguageLabel"
-        :line-number-enabled="lineNumberEnabled"
-        :show-help="showHelp"
-        :show-coffee-button="showCoffeeButton"
-        @convert="handleConvert"
-        @copy="handleCopy"
-        @erase="handleErase"
-        @random="handleRandom"
-        @issue="handleIssue"
-        @coffee="handleCoffee"
-      />
-    </div>
-    <hr id="less-anchor" aria-hidden="true" />
+    <CodePanel
+      v-model:source-code="sourceCode"
+      :highlighted-code="highlightedCode"
+      :language="selectedLanguage"
+      :language-label="selectedLanguageLabel"
+      :line-number-enabled="lineNumberEnabled"
+      :show-help="showHelp"
+      :show-coffee-button="showCoffeeButton"
+      @convert="handleConvert"
+      @copy="handleCopy"
+      @erase="handleErase"
+      @random="handleRandom"
+      @issue="handleIssue"
+      @coffee="handleCoffee"
+    />
+    <hr />
     
     <DocsSection />
-    <hr aria-hidden="true" />
+    <hr />
     
     <FooterSection />
     
@@ -460,180 +462,7 @@ watch(isDarkMode, (dark) => {
 </template>
 
 <style>
-/* Global styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-*:focus {
-  outline: none;
-}
-
-*:focus-visible {
-  outline: 2px solid #4a90d9;
-  outline-offset: 2px;
-}
-
-li {
-  list-style: none;
-}
-
-a {
-  text-decoration: none;
-}
-
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-html,
-body {
-  height: 100%;
-  width: 100%;
-  overflow-x: auto;
-}
-
-hr {
-  width: 90%;
-  margin: 0px auto;
-  height: 2px;
-  border: none;
-  background-image: linear-gradient(90deg, transparent 0%, #3f3f3f 50%, transparent 100%);
-}
-
-.border {
-  width: 100%;
-  min-width: 600px;
-  min-height: 100%;
-  overflow-x: hidden;
-  background-color: rgb(228, 233, 240);
-}
-
-/* Skip link for accessibility */
-.skip-link {
-  position: absolute;
-  top: -40px;
-  left: 0;
-  background: #4a90d9;
-  color: white;
-  padding: 8px 16px;
-  z-index: 100;
-  transition: top 0.3s;
-}
-
-.skip-link:focus {
-  top: 0;
-}
-
-/* Prism overrides */
-pre {
-  box-sizing: border-box !important;
-  margin: 0 !important;
-  max-height: 600px;
-  overflow-x: hidden;
-  overflow-y: auto;
-  padding: 8px 10px !important;
-  min-height: 400px !important;
-  border-radius: 10px;
-}
-
-pre.line-numbers {
-  padding-left: 50px !important;
-}
-
-pre code {
-  display: block !important;
-  box-sizing: border-box !important;
-  border-radius: 10px;
-  font-size: 14px !important;
-  width: max-content;
-  min-width: 100% !important;
-}
-
-pre code .token {
-  font-size: 14px;
-}
-
-pre code table {
-  font-family: inherit;
-  border-collapse: collapse;
-}
-
-pre code table tr .lineno {
-  text-align: right;
-  padding-right: 5px;
-  border-right: 0.5px solid #ccc;
-}
-
-pre code table tr .line {
-  padding-left: 5px;
-}
-
-/* AlertifyJS overrides */
-.alertify-notifier .ajs-message {
-  border-radius: 100px;
-  text-align: center;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 1);
-  box-shadow: 0 0 10px 1px rgba(255, 255, 255, 0.3);
-}
-
-.alertify-notifier .ajs-message.ajs-success {
-  background: rgba(92, 184, 17, 0.9);
-}
-
-.alertify-notifier .ajs-message.ajs-warning {
-  background: rgba(251, 192, 45, 0.9);
-}
-
-.alertify-notifier .ajs-message.ajs-error {
-  background: rgba(254, 26, 0, 0.9);
-}
-
-.alertify .ajs-dialog {
-  border-radius: 20px;
-  overflow: hidden;
-}
-
-.alertify .ajs-dialog .ajs-header {
-  font-family: 'Lucida Handwriting', cursive;
-  font-size: large;
-}
-
-.alertify .ajs-dialog .ajs-button {
-  border-radius: 10px;
-  background-color: #07c160;
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.1);
-  color: white;
-  transition: 0.3s;
-}
-
-.alertify .ajs-dialog .ajs-button:hover {
-  opacity: 0.9;
-  box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.3);
-}
-
-/* Custom classes */
-.coffee {
-  width: 80%;
-  margin: auto;
-  font-family: 'Lucida Handwriting', cursive;
-}
-
-.coffee img {
-  width: 100%;
-}
-
-.notification {
-  width: 80%;
-  margin: auto;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-/* Animations */
+/* Animation helpers not in original CSS */
 .animate__animated {
   animation-duration: 1s;
   animation-fill-mode: both;
@@ -661,10 +490,6 @@ pre code table tr .line {
 
 .animate__fadeIn {
   animation-name: fadeIn;
-}
-
-.animate__fadeOut {
-  animation-name: fadeOut;
 }
 
 @keyframes fadeInDown {
@@ -750,15 +575,6 @@ pre code table tr .line {
   }
   to {
     opacity: 1;
-  }
-}
-
-@keyframes fadeOut {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
   }
 }
 </style>

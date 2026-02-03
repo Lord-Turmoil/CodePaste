@@ -28,18 +28,17 @@ defineEmits<{
 </script>
 
 <template>
-  <main class="wrapper" role="main">
+  <div class="wrapper">
     <CodeInputPanel
       :model-value="sourceCode"
       @update:model-value="$emit('update:sourceCode', $event)"
     />
 
-    <nav class="action-wrapper" aria-label="Code actions">
+    <div class="action-wrapper">
       <ActionButton
         id="convert"
         icon="fa-solid fa-arrows-rotate"
         title="Make code paste"
-        aria-label="Convert and highlight code"
         animation-class="animate__spin"
         @click="$emit('convert')"
       />
@@ -47,7 +46,6 @@ defineEmits<{
         id="copy"
         icon="fa-regular fa-clipboard"
         title="Copy code paste"
-        aria-label="Copy highlighted code to clipboard"
         animation-class="animate__grow"
         @click="$emit('copy')"
       />
@@ -55,7 +53,6 @@ defineEmits<{
         id="erase"
         icon="fa-solid fa-eraser"
         title="Clear code paste"
-        aria-label="Clear input and output"
         animation-class="animate__shake"
         @click="$emit('erase')"
       />
@@ -63,7 +60,6 @@ defineEmits<{
         id="random"
         icon="fa-solid fa-shuffle"
         title="Get random example"
-        aria-label="Load random code example"
         animation-class="animate__rubber"
         @click="$emit('random')"
       />
@@ -71,8 +67,7 @@ defineEmits<{
         id="issue"
         icon="fa-regular fa-lightbulb"
         title="Request new language"
-        aria-label="Open GitHub issue to request new language"
-        animation-class="animate__tada"
+        animation-class="animate__blink"
         @click="$emit('issue')"
       />
       <ActionButton
@@ -80,11 +75,10 @@ defineEmits<{
         id="coffee"
         icon="fa-solid fa-yen-sign"
         title="Buy me a coffee"
-        aria-label="Support the developer"
         animation-class="animate__grow"
         @click="$emit('coffee')"
       />
-    </nav>
+    </div>
 
     <CodeOutputPanel
       :highlighted-code="highlightedCode"
@@ -93,41 +87,5 @@ defineEmits<{
       :line-number-enabled="lineNumberEnabled"
       :show-help="showHelp"
     />
-  </main>
+  </div>
 </template>
-
-<style scoped>
-.wrapper {
-  --panel-min-height: 400px;
-  --panel-max-height: 600px;
-  --panel-border-radius: 10px;
-  --code-font-size: 14px;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: row;
-  width: 95%;
-  margin: 10px auto;
-  gap: 10px;
-}
-
-.action-wrapper {
-  --animate-duration: 1s;
-  display: flex;
-  flex-direction: column;
-  align-self: center;
-  gap: 5px;
-}
-
-@media screen and (max-width: 768px) {
-  .wrapper {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .action-wrapper {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-}
-</style>

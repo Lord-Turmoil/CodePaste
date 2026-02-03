@@ -27,7 +27,7 @@ defineEmits<{
 </script>
 
 <template>
-  <nav
+  <div
     class="tools-wrapper animate__animated animate__flipInX"
     role="toolbar"
     aria-label="Code paste tools"
@@ -72,35 +72,5 @@ defineEmits<{
       back-color="rgb(165, 5, 5)"
       @click="$emit('toggleDarkMode')"
     />
-  </nav>
+  </div>
 </template>
-
-<style scoped>
-.tools-wrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  margin: 10px;
-  flex-wrap: wrap;
-  gap: 5px;
-}
-
-.tools {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-@media screen and (max-width: 950px) {
-  .tools-wrapper {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .tools {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-}
-</style>

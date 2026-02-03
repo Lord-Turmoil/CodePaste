@@ -168,9 +168,8 @@ watch(() => props.modelValue, () => {
 </script>
 
 <template>
-  <section class="panel input animate__animated animate__fadeInLeft" aria-label="Code input panel">
+  <div class="panel input animate__animated animate__fadeInLeft">
     <div class="code">
-      <label for="source" class="visually-hidden">Enter your code here</label>
       <textarea
         id="source"
         ref="textareaRef"
@@ -181,73 +180,10 @@ watch(() => props.modelValue, () => {
         spellcheck="false"
         autocorrect="off"
         autocapitalize="off"
-        aria-describedby="input-hint"
         @input="handleInput"
         @paste="handlePaste"
         @keydown="handleKeyDown"
       ></textarea>
-      <p id="input-hint" class="visually-hidden">
-        Paste or type your code. Press Tab to indent, Shift+Tab to unindent.
-      </p>
     </div>
-  </section>
+  </div>
 </template>
-
-<style scoped>
-.panel {
-  width: 50%;
-  min-height: var(--panel-min-height, 400px);
-  max-height: var(--panel-max-height, 600px);
-  overflow: hidden;
-}
-
-.code {
-  box-sizing: border-box;
-  width: 100%;
-  min-height: var(--panel-min-height, 400px);
-  max-height: var(--panel-max-height, 600px);
-  border-radius: var(--panel-border-radius, 10px);
-  overflow: hidden;
-}
-
-#source {
-  box-sizing: border-box;
-  width: 100%;
-  resize: none;
-  border: none;
-  padding: 8px 10px;
-  font-size: var(--code-font-size, 14px);
-  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
-  border-radius: var(--panel-border-radius, 10px);
-  z-index: 5;
-  line-height: 1.5;
-}
-
-#source:focus {
-  outline: 2px solid #4a90d9;
-  outline-offset: -2px;
-  box-shadow: 0px 0px 6px 0px inset rgba(10, 37, 64, 0.35);
-}
-
-#source.full {
-  overflow-y: auto;
-}
-
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-
-@media screen and (max-width: 768px) {
-  .panel {
-    width: 100%;
-  }
-}
-</style>
