@@ -1,31 +1,22 @@
 {
   "name": "code-paste",
-  "version": "3.1.1",
+  "version": "4.0.0",
   "description": "Online code highlighter for Microsoft Word and PowerPoint",
-  "main": "index.js",
+  "type": "module",
   "scripts": {
-    "build:html": "posthtml -c posthtml.json",
-    "build:js": "webpack --mode=production",
-    "build:css": "postcss src/css -d dist/css",
-    "build:res": "shx cp -r src/res src/favicon.png dist",
-    "build:version": "python scripts/minify_json.py src/version.json dist/version.json",
-    "build": "rimraf dist && npm run sample && npm-run-all build:* && python scripts/post_build.py",
-    "build-dev:html": "posthtml -c posthtml.json",
-    "build-dev:js": "webpack --mode=development",
-    "build-dev:css": "postcss src/css -d dist/css",
-    "build-dev:res": "shx cp -r src/res src/favicon.png dist",
-    "build-dev:version": "shx cp src/version.json dist/version.json",
-    "build-dev": "npm run sample && npm-run-all build-dev:*",
-    "watch:html": "onchange \"src/views\" -- npm run build-dev:html",
-    "watch:js": "onchange \"src/js\" -- npm run build-dev:js",
-    "watch:css": "onchange \"src/css\" -- npm run build-dev:css",
-    "watch:res": "onchange \"src/res\" -- npm run build-dev:res",
-    "watch:samples": "onchange \"languages\" -- npm run sample",
-    "watch:version": "onchange \"src/version.json\" -- npm run build-dev:version",
-    "dev": "npm run build-dev && run-p watch:*",
+    "dev": "vite",
+    "build": "vue-tsc -b && vite build && npm run build:res",
+    "build:res": "shx cp -r src/res src/favicon.png src/version.json dist && shx mkdir -p dist/css && shx cp src/css/dark.css dist/css/dark.css",
+    "preview": "vite preview",
+    "typecheck": "vue-tsc --noEmit",
+    "build-legacy:html": "posthtml -c posthtml.json",
+    "build-legacy:js": "webpack --mode=production",
+    "build-legacy:css": "postcss src/css -d dist/css",
+    "build-legacy:res": "shx cp -r src/res src/favicon.png dist",
+    "build-legacy:version": "python scripts/minify_json.py src/version.json dist/version.json",
+    "build-legacy": "rimraf dist && npm run sample && npm-run-all build-legacy:* && python scripts/post_build.py",
     "sample": "python scripts/update_samples.py",
     "init": "shx touch src/views/components/notification.html src/views/components/support.html src/views/components/statistics.html",
-    "lint": ".\\node_modules\\.bin\\eslint src\\** --fix",
     "deploy": "npm run build && pwsh deploy.ps1"
   },
   "keywords": [
@@ -40,6 +31,8 @@
   "devDependencies": {
     "@babel/preset-env": "^7.25.4",
     "@eslint/js": "^9.11.1",
+    "@types/prismjs": "^1.26.5",
+    "@vitejs/plugin-vue": "^6.0.4",
     "babel-loader": "^9.2.1",
     "babel-plugin-module-resolver": "^5.0.2",
     "babel-plugin-prismjs": "^2.1.0",
@@ -59,12 +52,16 @@
     "posthtml-modules": "^0.9.1",
     "rimraf": "^6.0.1",
     "shx": "^0.3.4",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.1",
+    "vue-tsc": "^3.2.4",
     "webpack": "^5.95.0",
     "webpack-cli": "^5.1.4"
   },
   "dependencies": {
     "alertifyjs": "^1.14.0",
     "jquery": "^3.7.1",
-    "prismjs": "^1.29.0"
+    "prismjs": "^1.29.0",
+    "vue": "^3.5.27"
   }
 }

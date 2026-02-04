@@ -4,3 +4,10 @@ dist/
 config.json
 deploy.bat
 .env
+
+# TypeScript build info
+*.tsbuildinfo
+
+# Vite generated files
+vite.config.js
+vite.config.d.ts
