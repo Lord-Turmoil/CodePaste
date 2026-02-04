@@ -38,3 +38,55 @@ const preClass = computed(() => props.lineNumberEnabled ? 'line-numbers' : '');
     </div>
   </div>
 </template>
+
+<style scoped>
+.panel {
+  position: relative;
+  width: 50%;
+  align-self: flex-start;
+  min-height: 400px;
+  max-height: 600px;
+  flex-grow: 0;
+  overflow: hidden;
+  overflow-y: overlay;
+}
+
+.panel .code {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 400px;
+  max-height: 600px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.panel .cover {
+  --animate-duration: 0.3s;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 400px;
+  border-radius: 10px;
+  background-image: linear-gradient(45deg, #a8edea 0%, #fed6e3 100%);
+  z-index: 5;
+  text-align: center;
+  overflow: auto;
+  box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.1) inset;
+}
+
+.panel .cover p {
+  align-self: center;
+  width: 90%;
+  margin: auto;
+}
+
+@media screen and (max-width: 768px) {
+  .panel {
+    width: 100%;
+  }
+}
+</style>

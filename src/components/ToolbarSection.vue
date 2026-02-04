@@ -74,3 +74,26 @@ defineEmits<{
     />
   </div>
 </template>
+
+<style scoped>
+.tools-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 10px;
+}
+
+.tools-wrapper .tools {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  justify-self: start;
+}
+
+@media screen and (max-width: 950px) {
+  .tools-wrapper .tools {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+}
+</style>

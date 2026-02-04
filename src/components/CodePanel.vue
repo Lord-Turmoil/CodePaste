@@ -89,3 +89,34 @@ defineEmits<{
     />
   </div>
 </template>
+
+<style scoped>
+.wrapper {
+  --panel-min-height: 400px;
+  --panel-max-height: 600px;
+  --panel-border-radius: 10px;
+  --code-font-size: 14px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  width: 95%;
+  margin: 10px auto;
+}
+
+.action-wrapper {
+  --animate-duration: 1s;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+
+@media screen and (max-width: 768px) {
+  .wrapper {
+    flex-direction: column;
+  }
+
+  .action-wrapper {
+    flex-direction: row;
+  }
+}
+</style>

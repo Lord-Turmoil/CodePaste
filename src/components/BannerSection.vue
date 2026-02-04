@@ -11,3 +11,9 @@
     </marquee>
   </div>
 </template>
+
+<style scoped>
+.banner {
+  margin: 5px 0;
+}
+</style>

@@ -187,3 +187,47 @@ watch(() => props.modelValue, () => {
     </div>
   </div>
 </template>
+
+<style scoped>
+.panel {
+  position: relative;
+  width: 50%;
+  align-self: flex-start;
+  min-height: 400px;
+  max-height: 600px;
+  flex-grow: 0;
+  overflow: hidden;
+  overflow-y: overlay;
+}
+
+.panel .code {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 400px;
+  max-height: 600px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+#source {
+  box-sizing: border-box;
+  width: 100%;
+  resize: none;
+  border: none;
+  padding: 8px 10px;
+  font-size: 14px;
+  border-radius: 10px;
+  z-index: 5;
+  font-family: 'Consolas', 'Monaco', monospace;
+}
+
+#source:focus {
+  box-shadow: 0px 0px 6px 0px inset rgba(10, 37, 64, 0.35);
+}
+
+@media screen and (max-width: 768px) {
+  .panel {
+    width: 100%;
+  }
+}
+</style>

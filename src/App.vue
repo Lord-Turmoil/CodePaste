@@ -5,12 +5,6 @@
  */
 import { ref, computed, onMounted, watch, nextTick } from 'vue';
 import Prism from 'prismjs';
-
-// Import original CSS files
-import './css/index.css';
-import './css/effect.css';
-import './css/doc.css';
-import './css/fonts.css';
 import 'prismjs/plugins/line-numbers/prism-line-numbers.js';
 import 'prismjs/plugins/toolbar/prism-toolbar.js';
 import 'prismjs/plugins/show-language/prism-show-language.js';
@@ -462,7 +456,224 @@ watch(isDarkMode, (dark) => {
 </template>
 
 <style>
-/* Animation helpers not in original CSS */
+/* Font faces */
+@font-face {
+  font-family: 'Lucida Handwriting';
+  src: url('./res/fonts/LucidaHandwriting-Italic.eot');
+  src: url('./res/fonts/LucidaHandwriting-Italic.eot?#iefix') format('embedded-opentype'),
+    url('./res/fonts/LucidaHandwriting-Italic.woff2') format('woff2'),
+    url('./res/fonts/LucidaHandwriting-Italic.woff') format('woff'),
+    url('./res/fonts/LucidaHandwriting-Italic.ttf') format('truetype'),
+    url('./res/fonts/LucidaHandwriting-Italic.svg#LucidaHandwriting-Italic') format('svg');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Consolas';
+  src: url('./res/fonts/Consolas.eot');
+  src: url('./res/fonts/Consolas.eot?#iefix') format('embedded-opentype'),
+    url('./res/fonts/Consolas.woff2') format('woff2'),
+    url('./res/fonts/Consolas.woff') format('woff'),
+    url('./res/fonts/Consolas.ttf') format('truetype'),
+    url('./res/fonts/Consolas.svg#Consolas') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Global reset and common styles */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*:focus {
+  outline: none;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  overflow-x: auto;
+}
+
+hr {
+  width: 90%;
+  margin: 0px auto;
+  height: 2px;
+  border: none;
+  background-image: linear-gradient(90deg, transparent 0%, #3f3f3f 50%, transparent 100%);
+}
+
+/* Mode transition */
+:root {
+  --mode-transition: 0.2s;
+}
+
+html,
+body,
+.border,
+.border textarea,
+.tool *,
+.code * {
+  transition: var(--mode-transition);
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+  background-color: #fcfcfc;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #8b8b8b;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #636363;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background-color: #484e51;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: #181a1b;
+}
+
+/* AlertifyJS overrides */
+.alertify-notifier .ajs-message {
+  border-radius: 100px;
+  text-align: center;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 1.0);
+  box-shadow: 0 0 10px 1px rgba(255, 255, 255, 0.3);
+}
+
+.alertify-notifier .ajs-message.ajs-success {
+  background: rgba(92, 184, 17, 0.9);
+}
+
+.alertify-notifier .ajs-message.ajs-warning {
+  background: rgba(251, 192, 45, 0.9);
+}
+
+.alertify-notifier .ajs-message.ajs-error {
+  background: rgba(254, 26, 0, 0.9);
+}
+
+.alertify .ajs-dialog {
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.alertify .ajs-dialog .ajs-header {
+  font-family: 'Lucida Handwriting';
+  font-size: large;
+}
+
+.alertify .ajs-dialog .ajs-button {
+  border-radius: 10px;
+  background-color: #07C160;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.1);
+  color: white;
+  transition: 0.3s;
+}
+
+.alertify .ajs-dialog .ajs-button:hover {
+  opacity: 0.9;
+  box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.3);
+}
+
+.coffee {
+  width: 80%;
+  margin: auto;
+  font-family: 'Lucida Handwriting';
+}
+
+.coffee img {
+  width: 100%;
+}
+
+.notification {
+  width: 80%;
+  margin: auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Prism overrides */
+pre {
+  box-sizing: border-box !important;
+  margin: 0 !important;
+  max-height: 600px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 8px 10px !important;
+  min-height: 400px !important;
+}
+
+pre.line-numbers {
+  padding-left: 50px !important;
+}
+
+pre code {
+  display: block !important;
+  box-sizing: border-box !important;
+  border-radius: 10px;
+  font-size: 14px !important;
+  width: max-content;
+  min-width: 100% !important;
+}
+
+pre code .token {
+  font-size: 14px;
+}
+
+pre code table {
+  font-family: inherit;
+  border-collapse: collapse;
+}
+
+pre code table tr .lineno {
+  text-align: right;
+  padding-right: 5px;
+  --color: #ccc;
+  border-right: 0.5px solid var(--color);
+}
+
+pre code table tr .line {
+  padding-left: 5px;
+}
+
+/* Copy animation */
+.code.pre-copy > .code-toolbar > pre[class*=language-] {
+  transition: background 1s;
+}
+
+.code.copy > .code-toolbar > pre[class*=language-] {
+  background: transparent !important;
+}
+
+.code > .code-toolbar > pre[class*=language-] > code * {
+  background: transparent !important;
+}
+
+/* Animation helpers */
 .animate__animated {
   animation-duration: 1s;
   animation-fill-mode: both;
@@ -576,5 +787,15 @@ watch(isDarkMode, (dark) => {
   to {
     opacity: 1;
   }
+}
+</style>
+
+<style scoped>
+.border {
+  width: 100%;
+  min-width: 600px;
+  min-height: 100%;
+  overflow-x: hidden;
+  background-color: rgb(228, 233, 240);
 }
 </style>

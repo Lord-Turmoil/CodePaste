@@ -17,3 +17,26 @@ defineEmits<{
     <span>Paste</span>
   </div>
 </template>
+
+<style scoped>
+.header {
+  padding: 10px;
+  text-align: center;
+}
+
+.header span {
+  font-family: 'Lucida Handwriting';
+  font-size: 3em;
+  font-weight: bold;
+}
+
+.header span img {
+  height: 1.7em;
+  vertical-align: middle;
+  margin: 0 5px;
+}
+
+#logo {
+  cursor: pointer;
+}
+</style>

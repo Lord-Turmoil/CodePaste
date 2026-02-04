@@ -46,3 +46,41 @@ const currentYear = computed(() => {
     </div>
   </div>
 </template>
+
+<style scoped>
+.footer {
+  width: 100%;
+  text-align: center;
+}
+
+.footer .badge-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 10px auto;
+}
+
+.footer .badge-wrapper .badge {
+  margin: 0 5px;
+}
+
+.footer .copyright {
+  display: inline-block;
+  margin: auto;
+  margin-bottom: 20px;
+  text-align: center;
+  font-family: 'Lucida Handwriting';
+}
+
+.footer .copyright:hover {
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 768px) {
+  .footer .badge-wrapper {
+    flex-direction: column;
+  }
+}
+</style>
